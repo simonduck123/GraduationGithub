@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // Make sure you have this namespace
 
 public class InteractionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Reference to your canvas text element
+    public TextMeshProUGUI interactionText; // Use TextMeshProUGUI instead of Text
 
-    // Update is called once per frame
-    void Update()
+    // A method to call from the  BoxInteraction script to update the text
+    public void UpdateInteractionText(string newText)
     {
-        
+        interactionText.text = "Action: " + newText;
     }
 }

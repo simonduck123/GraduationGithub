@@ -9,6 +9,10 @@ public class BallMovement : MonoBehaviour
     public UDPReceive udpReceive;
     [SerializeField] private bool isInversed;
     private float inverseOffset;
+    [SerializeField] private float roomSizeX;
+    [SerializeField] private float roomSizeY;
+    [SerializeField] private float cameraResX;
+    [SerializeField] private float cameraResY;
 
     void Update()
     {
@@ -26,11 +30,11 @@ public class BallMovement : MonoBehaviour
         data = data.Remove(data.Length - 1, 1);
         string[] info = data.Split(',');
 
-        float x = float.Parse(info[0]) / 1280;  // Normalize x to 0-1 range
-        float y = float.Parse(info[1]) / 720;  // Normalize y to 0-1 range
+        float x = float.Parse(info[0]) / cameraResX;  // Normalize x to 0-1 range
+        float y = float.Parse(info[1]) / cameraResY;  // Normalize y to 0-1 range
 
-        float xPos = (x * 18) - 9;  // Map to -9 to 9 range
-        float yPos = (y * 10) - 5;  // Map to -5 to 5 range
+        float xPos = (x * (roomSizeX*2)) - roomSizeX;  // Map to -9 to 9 range
+        float yPos = (y * (roomSizeY*2)) - roomSizeY;  // Map to -5 to 5 range
 
         gameObject.transform.localPosition = new Vector3(inverseOffset * xPos, 0, inverseOffset * yPos);
 

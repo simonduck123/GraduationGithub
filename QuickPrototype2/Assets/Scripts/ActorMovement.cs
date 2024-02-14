@@ -10,7 +10,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private bool isInversed;
     private float inverseOffset;
 
-    private void Start()
+    void Update()
     {
         if (isInversed)
         {
@@ -20,22 +20,19 @@ public class BallMovement : MonoBehaviour
         {
             inverseOffset = 1f;
         }
-    }
-
-    void Update()
-    {
 
         string data = udpReceive.data;
         data = data.Remove(0, 1);
         data = data.Remove(data.Length - 1, 1);
-        //(255,361,50012) example data (x,y,area)
         string[] info = data.Split(',');
 
-        float x = 5 - float.Parse(info[0]) / 100;
-        float y = 5 - float.Parse(info[1]) / 100;
-        //float z = -10 + float.Parse(info[2]) / 1000;
+        float x = float.Parse(info[0]) / 1280;  // Normalize x to 0-1 range
+        float y = float.Parse(info[1]) / 720;  // Normalize y to 0-1 range
 
-        gameObject.transform.localPosition = new Vector3(inverseOffset * x, 0, inverseOffset * y);
+        float xPos = (x * 18) - 9;  // Map to -9 to 9 range
+        float yPos = (y * 10) - 5;  // Map to -5 to 5 range
+
+        gameObject.transform.localPosition = new Vector3(inverseOffset * xPos, 0, inverseOffset * yPos);
 
 
     }

@@ -1124,7 +1124,7 @@ MonoBehaviour:
   _workInEditor: 0
   _localHostMode: 0
   _localHost: 10.0.1.32
-  _localPort: 7000
+  _localPort: 8000
 --- !u!4 &2103238948
 Transform:
   m_ObjectHideFlags: 0
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4043274b57c4c039efe20febc16183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: http://localhost:3000
+  Address: /isadora/1
   Receiver: {fileID: 2103238947}
 --- !u!4 &2110279432
 Transform:

@@ -1175,8 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095461737}
-  - component: {fileID: 1095461736}
-  - component: {fileID: 1095461735}
+  - component: {fileID: 1095461738}
   m_Layer: 0
   m_Name: OSC Manager
   m_TagString: Untagged
@@ -1184,49 +1183,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1095461735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095461734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbba286dc10e549b2bdec947ef8dbd3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _autoConnect: 1
-  _closeOnPause: 0
-  _mapBundle: {fileID: 0}
-  _workInEditor: 0
-  _localHostMode: 0
-  _localHost: 145.76.94.117
-  _localPort: 8000
---- !u!114 &1095461736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095461734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464088183d2a1484ab8fb64e356c9f5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _autoConnect: 1
-  _closeOnPause: 0
-  _mapBundle: {fileID: 0}
-  _workInEditor: 0
-  _localHostMode: 0
-  _localPortMode: 2
-  _localReceiver: {fileID: 0}
-  _localHost: 145.76.94.117
-  _localPort: 7000
-  _remoteHost: 127.0.0.1
-  _remotePort: 8000
-  _useBundle: 0
 --- !u!4 &1095461737
 Transform:
   m_ObjectHideFlags: 0
@@ -1242,6 +1198,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095461738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095461734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaa870b26e6c46429eacfd87d3bdb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReceivePort: 7000
+  bedroomSceneManager: {fileID: 0}
 --- !u!1 &1101391525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1502,7 @@ MonoBehaviour:
   Address: /example/1
   bedroom: {fileID: 166296042}
   livingRoom: {fileID: 620905663}
-  Receiver: {fileID: 1095461735}
+  Receiver: {fileID: 0}
 --- !u!1 &1193191170
 GameObject:
   m_ObjectHideFlags: 0

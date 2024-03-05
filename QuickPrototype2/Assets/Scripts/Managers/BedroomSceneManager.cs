@@ -5,30 +5,39 @@ using UnityEngine;
 public class BedroomSceneManager : MonoBehaviour
 {
     private Dictionary<string, System.Action> actionMap;
+    public FridgeController fridgeController;
+    public CanController canController;
+    public ComputerController computerController;
+    public DoorController doorController;
+    public DadController dadController;
+    public BedroomTransitionController bedroomTransitionController;
 
     void Start()
     {
         actionMap = new Dictionary<string, System.Action>();
         //Fridge
-        actionMap.Add("/fridge/open", FindObjectOfType<FridgeController>().OpenFridge);
-        actionMap.Add("/fridge/close", FindObjectOfType<FridgeController>().CloseFridge);
+        actionMap.Add("/bedroom/fridge/open", fridgeController.OpenFridge);
+        actionMap.Add("/bedroom/fridge/close", fridgeController.CloseFridge);
         //Can
-        actionMap.Add("/can/appear", FindObjectOfType<CanController>().MakeCanAppear);
-        actionMap.Add("/can/disappear", FindObjectOfType<CanController>().MakeCanDisappear);
+        actionMap.Add("/bedroom/can/appear", canController.MakeCanAppear);
+        actionMap.Add("/bedroom/can/disappear", canController.MakeCanDisappear);
         //Computer
-        actionMap.Add("/computer/on", FindObjectOfType<ComputerController>().TurnOnComputer);
-        actionMap.Add("/computer/off", FindObjectOfType<ComputerController>().TurnOffComputer);
+        actionMap.Add("/bedroom/computer/on", computerController.TurnOnComputer);
+        actionMap.Add("/bedroom/computer/off", computerController.TurnOffComputer);
         //Door
-        actionMap.Add("/door/open", FindObjectOfType<DoorController>().OpenDoor);
-        actionMap.Add("/door/close", FindObjectOfType<DoorController>().CloseDoor);
-        actionMap.Add("/door/knock", FindObjectOfType<DoorController>().PlayKnockSound);
-        actionMap.Add("/door/loudknock", FindObjectOfType<DoorController>().PlayLoudKnockSound);
+        actionMap.Add("/bedroom/door/open", doorController.OpenDoor);
+        actionMap.Add("/bedroom/door/close", doorController.CloseDoor);
+        actionMap.Add("/bedroom/door/knock", doorController.PlayKnockSound);
+        actionMap.Add("/bedroom/door/loudknock", doorController.PlayLoudKnockSound);
         //Dad
-        actionMap.Add("/dad/walk", FindObjectOfType<DadController>().WalkInside);
-        actionMap.Add("/dad/reset", FindObjectOfType<DadController>().ResetDad);
-        actionMap.Add("/dad/throw", FindObjectOfType<DadController>().ThrowKevin);
-        actionMap.Add("/dad/dialogue", FindObjectOfType<DadController>().Dialogue);
-        actionMap.Add("/dad/pcoff", FindObjectOfType<DadController>().TurnPCOff);
+        actionMap.Add("/bedroom/dad/walk", dadController.WalkInside);
+        actionMap.Add("/bedroom/dad/reset", dadController.ResetDad);
+        actionMap.Add("/bedroom/dad/throw", dadController.ThrowKevin);
+        actionMap.Add("/bedroom/dad/dialogue", dadController.Dialogue);
+        actionMap.Add("/bedroom/dad/pcoff", dadController.TurnPCOff);
+        //Transition
+        actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
+        actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
     }
 
     public void HandleAction(string address)

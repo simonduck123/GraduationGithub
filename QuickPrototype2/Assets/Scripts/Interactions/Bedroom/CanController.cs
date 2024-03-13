@@ -6,11 +6,11 @@ public class CanController : MonoBehaviour
 {
     public void MakeCanAppear()
     {
-
+        this.gameObject.SetActive(true);
     }
 
     public void MakeCanDisappear()
     {
-
+        this.gameObject.SetActive(false);
     }
 }

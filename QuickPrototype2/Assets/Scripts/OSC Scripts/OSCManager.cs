@@ -32,8 +32,9 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/dad/walk", WalkInside);
         receiver.Bind("/bedroom/dad/reset", ResetDad);
         receiver.Bind("/bedroom/dad/throw", ThrowKevin);
-        receiver.Bind("/bedroom/dad/dialogue", Dialogue);
-        receiver.Bind("/bedroom/dad/pcoff", TurnPCOff);
+        //Dialogue
+        receiver.Bind("/bedroom/dialogue/next", DialogueNext);
+        receiver.Bind("/bedroom/dialogue/previous", DialoguePrevious);
         //Transition
         receiver.Bind("/bedroom/transition/appear", DoBedroomTransition);
         receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
@@ -152,15 +153,17 @@ public class OSCManager : MonoBehaviour
         bedroomSceneManager.HandleAction("/bedroom/dad/throw");
     }
 
-    private void Dialogue(OSCMessage message)
+    //Dialogue
+    private void DialogueNext(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dad/dialogue");
+        bedroomSceneManager.HandleAction("/bedroom/dialogue/next");
     }
 
-    private void TurnPCOff(OSCMessage message)
+    private void DialoguePrevious(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dad/pcoff");
+        bedroomSceneManager.HandleAction("/bedroom/dialogue/previous");
     }
+
     //Transition
     private void DoBedroomTransition(OSCMessage message)
     {

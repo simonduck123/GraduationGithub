@@ -11,6 +11,7 @@ public class BedroomSceneManager : MonoBehaviour
     public DoorController doorController;
     public DadController dadController;
     public BedroomTransitionController bedroomTransitionController;
+    public DialogueManager dialogueManager;
 
     void Start()
     {
@@ -33,11 +34,12 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dad/walk", dadController.WalkInside);
         actionMap.Add("/bedroom/dad/reset", dadController.ResetDad);
         actionMap.Add("/bedroom/dad/throw", dadController.ThrowKevin);
-        actionMap.Add("/bedroom/dad/dialogue", dadController.Dialogue);
-        actionMap.Add("/bedroom/dad/pcoff", dadController.TurnPCOff);
+        //Dialogue
+        actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
+        actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
         //Transition
-        actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
-        actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
+        //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
+        //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
     }
 
     public void HandleAction(string address)

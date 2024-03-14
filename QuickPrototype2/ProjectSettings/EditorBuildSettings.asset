@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Bedroom Scene.unity
+    guid: f6bd0cfe16756fa40b07e1589fc4897f
   - enabled: 1
-    path: Assets/Scenes/Person Tracking.unity
-    guid: 20b35421c3a3e2c4a860d11dc4378c55
+    path: Assets/Scenes/ParkScene.unity
+    guid: aa70cffe9263da0408edbb75905a3ace
   - enabled: 1
-    path: Assets/OpenCV+Unity/Demo/Tracking/TrackingScene.unity
-    guid: 111a9059ba67efb47a099e5ffbe159c2
+    path: Assets/Scenes/DimensionScene.unity
+    guid: b6f7796777852994e98d764b2de1950a
+  - enabled: 1
+    path: Assets/Scenes/NewParkScene.unity
+    guid: 771caa3d867698d4ea7e812b564cea2a
   m_configObjects: {}

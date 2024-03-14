@@ -37,6 +37,8 @@ public class BedroomSceneManager : MonoBehaviour
         //Dialogue
         actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
         actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
+        actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
+        actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
         //Transition
         //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
         //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);

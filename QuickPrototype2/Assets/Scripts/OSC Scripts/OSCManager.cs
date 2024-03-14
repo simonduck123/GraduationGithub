@@ -8,10 +8,11 @@ public class OSCManager : MonoBehaviour
     public ParkSceneManager parkSceneManager;
     public MultipleDimensionSceneManager multiDimensionSceneManager;
     public NewParkManager NewParkManager;
+    public OSCReceiver receiver;
+    public OSCTransmitter transmitter;
 
     void Start()
     {
-        var receiver = gameObject.AddComponent<OSCReceiver>();
         receiver.LocalPort = ReceivePort;
         #region Bedroom
         //Fridge
@@ -33,6 +34,8 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/dad/reset", ResetDad);
         receiver.Bind("/bedroom/dad/throw", ThrowKevin);
         //Dialogue
+        receiver.Bind("/bedroom/dialogue/show", ShowDialogue);
+        receiver.Bind("/bedroom/dialogue/hide", HideDialogue);
         receiver.Bind("/bedroom/dialogue/next", DialogueNext);
         receiver.Bind("/bedroom/dialogue/previous", DialoguePrevious);
         //Transition
@@ -162,6 +165,16 @@ public class OSCManager : MonoBehaviour
     private void DialoguePrevious(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/dialogue/previous");
+    }
+
+    private void ShowDialogue(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dialogue/show");
+    }
+
+    private void HideDialogue(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dialogue/hide");
     }
 
     //Transition

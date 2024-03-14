@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &112047677
 RectTransform:
   m_ObjectHideFlags: 0
@@ -670,6 +670,8 @@ GameObject:
   m_Component:
   - component: {fileID: 515910708}
   - component: {fileID: 515910709}
+  - component: {fileID: 515910710}
+  - component: {fileID: 515910711}
   m_Layer: 0
   m_Name: OSC Manager
   m_TagString: Untagged
@@ -704,11 +706,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aaa870b26e6c46429eacfd87d3bdb2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReceivePort: 7000
+  ReceivePort: 7001
   bedroomSceneManager: {fileID: 1222120738}
   parkSceneManager: {fileID: 0}
   multiDimensionSceneManager: {fileID: 0}
   NewParkManager: {fileID: 0}
+  receiver: {fileID: 515910710}
+  transmitter: {fileID: 515910711}
+--- !u!114 &515910710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515910707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbba286dc10e549b2bdec947ef8dbd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  _closeOnPause: 0
+  _mapBundle: {fileID: 0}
+  _workInEditor: 0
+  _localHostMode: 0
+  _localHost: 145.76.94.156
+  _localPort: 7001
+--- !u!114 &515910711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515910707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464088183d2a1484ab8fb64e356c9f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  _closeOnPause: 0
+  _mapBundle: {fileID: 0}
+  _workInEditor: 0
+  _localHostMode: 0
+  _localPortMode: 2
+  _localReceiver: {fileID: 0}
+  _localHost: 145.76.94.156
+  _localPort: 7000
+  _remoteHost: 127.0.0.1
+  _remotePort: 7000
+  _useBundle: 0
 --- !u!1 &532498019
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &971076444
 RectTransform:
   m_ObjectHideFlags: 0

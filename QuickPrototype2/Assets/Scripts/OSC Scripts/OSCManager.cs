@@ -41,6 +41,13 @@ public class OSCManager : MonoBehaviour
         //Transition
         receiver.Bind("/bedroom/transition/appear", DoBedroomTransition);
         receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
+        //Cameras
+        receiver.Bind("/bedroom/camera/one", CamOne);
+        receiver.Bind("/bedroom/camera/two", CamTwo);
+        receiver.Bind("/bedroom/camera/three", CamThree);
+        receiver.Bind("/bedroom/camera/four", CamFour);
+        receiver.Bind("/bedroom/camera/move/x", CamMoveX);
+        receiver.Bind("/bedroom/camera/move/y", CamMoveY);
         #endregion
         #region Park
         //Fridge
@@ -85,11 +92,40 @@ public class OSCManager : MonoBehaviour
         #endregion
     }
     #region Bedroom Functions
+    //Camera
+    public void CamMoveX(OSCMessage message)
+    {
+        if (message.ToFloat(out var xValue))
+        {
+            // Call the corresponding function in bedroomSceneManager with xValue
+            bedroomSceneManager.HandleAction("/bedroom/camera/move/x", xValue);
+        }
+    }
+    public void CamMoveY(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/camera/move/y");
+    }
 
+    private void CamOne(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/camera/one");
+    }
+    private void CamTwo(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/camera/two");
+    }
+    private void CamThree(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/camera/three");
+    }
+    private void CamFour(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/camera/four");
+    }
     //Fridge
     private void OpenFridge(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/fridge/open");
+        bedroomSceneManager.HandleAction("/bedroom/camera/one");
     }
 
     private void CloseFridge(OSCMessage message)

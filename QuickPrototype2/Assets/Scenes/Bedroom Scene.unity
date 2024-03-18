@@ -1144,6 +1144,7 @@ MonoBehaviour:
   dadController: {fileID: 5866666021568353945}
   bedroomTransitionController: {fileID: 616634069}
   dialogueManager: {fileID: 532498021}
+  cameraManager: {fileID: 0}
 --- !u!1 &1360060757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1499,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599079876}
   m_CullTransparentMesh: 1
+--- !u!1 &1704143938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1704143939}
+  - component: {fileID: 1704143940}
+  m_Layer: 0
+  m_Name: CameraManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1704143939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704143938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.1587286, y: -0.9451978, z: 3.4138095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1704143940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704143938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f366a7a11bfbc499ba8cff5e8b0c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraOne: {fileID: 65702495854064046}
+  cameraTwo: {fileID: 2087901355}
+  cameraThree: {fileID: 1977344110}
+  cameraFour: {fileID: 1479294792}
 --- !u!1 &1851224373
 GameObject:
   m_ObjectHideFlags: 0

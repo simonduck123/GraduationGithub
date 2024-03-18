@@ -8,7 +8,8 @@ namespace extOSC.Examples
 	{
 		#region Public Vars
 
-		public string Address = "/example/1";
+		public string addressX = "/example/x";
+        public string addressY = "/example/y";
 
         private const string _BedroomAddress1 = "/Bedroom/1";
 
@@ -19,7 +20,8 @@ namespace extOSC.Examples
         private const string _LivingRoomAddress2 = "/LivingRoom/2";
 
         private float isLivingRoom;
-        private float isBedroom;
+        private float xPos;
+        private float yPos;
         public GameObject bedroom;
         public GameObject livingRoom;
 
@@ -35,8 +37,8 @@ namespace extOSC.Examples
 		protected virtual void Start()
 		{
             
-            Receiver.Bind(_BedroomAddress1, ReceivedBedroomOne);
-            Receiver.Bind(_BedroomAddress2, ReceivedBedroomTwo);
+            Receiver.Bind(addressX, ReceivedX);
+            Receiver.Bind(addressY, ReceivedY);
             Receiver.Bind(_LivingRoomAddress1, ReceivedLivingRoomOne);
             Receiver.Bind(_LivingRoomAddress2, ReceivedLivingRoomTwo);
             /*
@@ -58,36 +60,26 @@ namespace extOSC.Examples
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                livingRoom.SetActive(true);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                livingRoom.SetActive(false);
-            }
+            Debug.Log(xPos + " " + yPos);
         }
 
         #endregion
 
         #region Private Methods
 
-        private void ReceivedBedroomOne(OSCMessage message)
+        private void ReceivedX(OSCMessage message)
         {
-            Debug.LogFormat("Received: {0}", message);
             if (message.ToFloat(out var value))
             {
-                isBedroom = value;
+                xPos = value;
             }
         }
 
-        private void ReceivedBedroomTwo(OSCMessage message)
+        private void ReceivedY(OSCMessage message)
         {
-            Debug.LogFormat("Received: {0}", message);
             if (message.ToFloat(out var value))
             {
-                isBedroom = value;
+                yPos = value;
             }
         }
 

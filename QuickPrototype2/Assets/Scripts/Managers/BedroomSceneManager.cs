@@ -12,6 +12,7 @@ public class BedroomSceneManager : MonoBehaviour
     public DadController dadController;
     public BedroomTransitionController bedroomTransitionController;
     public DialogueManager dialogueManager;
+    public CameraManager cameraManager;
 
     void Start()
     {
@@ -42,9 +43,16 @@ public class BedroomSceneManager : MonoBehaviour
         //Transition
         //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
         //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
+        //Camera
+        actionMap.Add("/bedroom/camera/one", cameraManager.ShowCameraOne);
+        actionMap.Add("/bedroom/camera/two", cameraManager.ShowCameraTwo);
+        actionMap.Add("/bedroom/camera/three", cameraManager.ShowCameraThree);
+        actionMap.Add("/bedroom/camera/four", cameraManager.ShowCameraFour);
+        actionMap.Add("/bedroom/camera/move/x", cameraManager.ShowCameraThree);
+        actionMap.Add("/bedroom/camera/move/y", cameraManager.ShowCameraFour);
     }
 
-    public void HandleAction(string address)
+    public void HandleAction(string address, float value)
     {
         if (actionMap.ContainsKey(address))
         {

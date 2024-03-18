@@ -41,14 +41,16 @@ public class OSCManager : MonoBehaviour
         //Transition
         receiver.Bind("/bedroom/transition/appear", DoBedroomTransition);
         receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
+        /*
         //Cameras
         receiver.Bind("/bedroom/camera/one", CamOne);
         receiver.Bind("/bedroom/camera/two", CamTwo);
         receiver.Bind("/bedroom/camera/three", CamThree);
         receiver.Bind("/bedroom/camera/four", CamFour);
+        */
         #endregion
         #region Park
-        //Fridge
+        //Flock
         receiver.Bind("/park/flock/on", TurnOffFlock);
         receiver.Bind("/park/flock/off", TurnOnFlock);
         //Lara
@@ -91,7 +93,7 @@ public class OSCManager : MonoBehaviour
     }
     #region Bedroom Functions
     //Camera
-
+    /*
     private void CamOne(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/camera/one");
@@ -108,6 +110,7 @@ public class OSCManager : MonoBehaviour
     {
         bedroomSceneManager.HandleAction("/bedroom/camera/four");
     }
+    */
     //Fridge
     private void OpenFridge(OSCMessage message)
     {

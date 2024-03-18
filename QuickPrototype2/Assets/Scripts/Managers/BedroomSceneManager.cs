@@ -40,14 +40,16 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
         actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
         actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
+        /*
         //Transition
-        //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
-        //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
+        actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
+        actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
         //Camera
         actionMap.Add("/bedroom/camera/one", cameraManager.ShowCameraOne);
         actionMap.Add("/bedroom/camera/two", cameraManager.ShowCameraTwo);
         actionMap.Add("/bedroom/camera/three", cameraManager.ShowCameraThree);
         actionMap.Add("/bedroom/camera/four", cameraManager.ShowCameraFour);
+        */
     }
 
     public void HandleAction(string address)

@@ -52,6 +52,8 @@ namespace extOSC.Examples
             Receiver.Bind(addressRotX, ReceivedXRot);
             Receiver.Bind(addressRotY, ReceivedYRot);
             Receiver.Bind(addressRotZ, ReceivedZRot);
+
+
         }
 
         private void Update()
@@ -81,9 +83,10 @@ namespace extOSC.Examples
 
         void MoveCamera(Camera camera)
         {
-            Vector3 newPosition = camera.transform.position + new Vector3(xPos, -yPos, zPos) * camSpeed * Time.deltaTime;
-            camera.transform.position = newPosition;
+            Vector3 movementDirection = camera.transform.forward * -yPos + camera.transform.right * xPos + camera.transform.up * zPos;
+            camera.transform.Translate(movementDirection * camSpeed * Time.deltaTime, Space.World);
         }
+
 
         void RotateCamera(Camera camera)
         {

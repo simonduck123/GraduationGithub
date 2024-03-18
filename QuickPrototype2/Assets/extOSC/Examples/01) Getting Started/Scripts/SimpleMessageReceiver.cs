@@ -1,6 +1,8 @@
 ﻿/* Copyright (c) 2020 ExT (V.Sigalkin) */
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace extOSC.Examples
 {
@@ -8,20 +10,24 @@ namespace extOSC.Examples
 	{
 		#region Public Vars
 
-		public string addressX = "/example/x";
-        public string addressY = "/example/y";
+		private string addressX = "/camera/position/x";
+        private string addressY = "/camera/position/y";
+        private string addressZ = "/camera/position/z";
+        private string addressRotX = "/camera/rotation/x";
+        private string addressRotY = "/camera/rotation/y";
+        private string addressRotZ = "/camera/rotation/z";
 
-        private const string _BedroomAddress1 = "/Bedroom/1";
 
-        private const string _BedroomAddress2 = "/Bedroom/2";
+        public GameObject testCam;
+        public float camSpeed = 1f;
+        public float rotationSpeed = 10f;
 
-        private const string _LivingRoomAddress1 = "/LivingRoom/1";
-
-        private const string _LivingRoomAddress2 = "/LivingRoom/2";
-
-        private float isLivingRoom;
         private float xPos;
         private float yPos;
+        private float zPos;
+        private float xRot;
+        private float yRot;
+        private float zRot;
         public GameObject bedroom;
         public GameObject livingRoom;
 
@@ -30,37 +36,30 @@ namespace extOSC.Examples
         [Header("OSC Settings")]
 		public OSCReceiver Receiver;
 
-		#endregion
+        #endregion
 
-		#region Unity Methods
+        #region Unity Methods
 
-		protected virtual void Start()
+        protected virtual void Start()
 		{
             
             Receiver.Bind(addressX, ReceivedX);
             Receiver.Bind(addressY, ReceivedY);
-            Receiver.Bind(_LivingRoomAddress1, ReceivedLivingRoomOne);
-            Receiver.Bind(_LivingRoomAddress2, ReceivedLivingRoomTwo);
-            /*
-            Receiver.Bind(_blobAddress, ReceiveBlob);
-            Receiver.Bind(_charAddress, ReceiveChar);
-            Receiver.Bind(_colorAddress, ReceiveColor);
-            Receiver.Bind(_doubleAddress, ReceiveDouble);
-            Receiver.Bind(_boolAddress, ReceiveBool);
-            Receiver.Bind(_floatAddress, ReceiveFloat);
-            Receiver.Bind(_impulseAddress, ReceiveImpulse);
-            Receiver.Bind(_intAddress, ReceiveInt);
-            Receiver.Bind(_longAddress, ReceiveLong);
-            Receiver.Bind(_nullAddress, ReceiveNull);
-            Receiver.Bind(_stringAddress, ReceiveString);
-            Receiver.Bind(_timetagAddress, ReceiveTimeTag);
-            Receiver.Bind(_midiAddress, ReceiveMidi);
-            */
+            Receiver.Bind(addressZ, ReceivedZ);
+            Receiver.Bind(addressRotX, ReceivedXRot);
+            Receiver.Bind(addressRotY, ReceivedYRot);
+            Receiver.Bind(addressRotZ, ReceivedZRot);
+
         }
 
         private void Update()
         {
-            Debug.Log(xPos + " " + yPos);
+            Vector3 newPosition = testCam.transform.position + new Vector3(xPos, -yPos, zPos) * camSpeed * Time.deltaTime;
+            testCam.transform.position = newPosition;
+
+            Vector3 newRotation = testCam.transform.rotation.eulerAngles + new Vector3(xRot, yRot, zRot) * rotationSpeed * Time.deltaTime;
+            testCam.transform.rotation = Quaternion.Euler(newRotation);
+
         }
 
         #endregion
@@ -83,21 +82,34 @@ namespace extOSC.Examples
             }
         }
 
-        private void ReceivedLivingRoomOne(OSCMessage message)
+        private void ReceivedZ(OSCMessage message)
         {
-            Debug.LogFormat("Received: {0}", message);
             if (message.ToFloat(out var value))
             {
-                isLivingRoom = value;
+                zPos = value;
+            }
+        }
+        private void ReceivedXRot(OSCMessage message)
+        {
+            if (message.ToFloat(out var value))
+            {
+                xRot = value;
             }
         }
 
-        private void ReceivedLivingRoomTwo(OSCMessage message)
+        private void ReceivedYRot(OSCMessage message)
         {
-            Debug.LogFormat("Received: {0}", message);
             if (message.ToFloat(out var value))
             {
-                isLivingRoom = value;
+                yRot = value;
+            }
+        }
+
+        private void ReceivedZRot(OSCMessage message)
+        {
+            if (message.ToFloat(out var value))
+            {
+                zRot = value;
             }
         }
 

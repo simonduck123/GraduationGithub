@@ -1441,6 +1441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addressX: /example/x
   addressY: /example/y
+  testCam: {fileID: 304804538}
+  camSpeed: 1
   bedroom: {fileID: 166296042}
   livingRoom: {fileID: 620905663}
   Receiver: {fileID: 1159179320}

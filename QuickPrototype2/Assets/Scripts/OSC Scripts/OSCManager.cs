@@ -46,8 +46,6 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/camera/two", CamTwo);
         receiver.Bind("/bedroom/camera/three", CamThree);
         receiver.Bind("/bedroom/camera/four", CamFour);
-        receiver.Bind("/bedroom/camera/move/x", CamMoveX);
-        receiver.Bind("/bedroom/camera/move/y", CamMoveY);
         #endregion
         #region Park
         //Fridge
@@ -93,18 +91,6 @@ public class OSCManager : MonoBehaviour
     }
     #region Bedroom Functions
     //Camera
-    public void CamMoveX(OSCMessage message)
-    {
-        if (message.ToFloat(out var xValue))
-        {
-            // Call the corresponding function in bedroomSceneManager with xValue
-            bedroomSceneManager.HandleAction("/bedroom/camera/move/x", xValue);
-        }
-    }
-    public void CamMoveY(OSCMessage message)
-    {
-        bedroomSceneManager.HandleAction("/bedroom/camera/move/y");
-    }
 
     private void CamOne(OSCMessage message)
     {

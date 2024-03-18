@@ -38,4 +38,16 @@ public class CameraManager : MonoBehaviour
         cameraFour.SetActive(false);
     }
 
+    public void MoveCameraX(float xValue)
+    {
+        // Implement logic to move the camera in the X direction using xValue
+    }
+
+    public void MoveCameraY(float yValue)
+    {
+        // Implement logic to move the camera in the Y direction using yValue
+    }
+
+
+
 }

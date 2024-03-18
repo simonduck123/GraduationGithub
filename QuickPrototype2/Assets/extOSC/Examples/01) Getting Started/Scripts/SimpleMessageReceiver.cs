@@ -6,19 +6,18 @@ using UnityEngine.PlayerLoop;
 
 namespace extOSC.Examples
 {
-	public class SimpleMessageReceiver : MonoBehaviour
-	{
-		#region Public Vars
+    public class SimpleMessageReceiver : MonoBehaviour
+    {
+        #region Public Vars
 
-		private string addressX = "/camera/position/x";
+        private string addressX = "/camera/position/x";
         private string addressY = "/camera/position/y";
         private string addressZ = "/camera/position/z";
         private string addressRotX = "/camera/rotation/x";
         private string addressRotY = "/camera/rotation/y";
         private string addressRotZ = "/camera/rotation/z";
 
-
-        public GameObject testCam;
+        public Camera[] cameras;
         public float camSpeed = 1f;
         public float rotationSpeed = 10f;
 
@@ -30,8 +29,9 @@ namespace extOSC.Examples
         private float zRot;
         public GameObject bedroom;
         public GameObject livingRoom;
+        private int currentCameraIndex = 0;
 
-        
+
 
         [Header("OSC Settings")]
 		public OSCReceiver Receiver;
@@ -42,24 +42,53 @@ namespace extOSC.Examples
 
         protected virtual void Start()
 		{
-            
+            for (int i = 0; i < cameras.Length; i++)
+            {
+                LoadCameraPosition(i);
+            }
             Receiver.Bind(addressX, ReceivedX);
             Receiver.Bind(addressY, ReceivedY);
             Receiver.Bind(addressZ, ReceivedZ);
             Receiver.Bind(addressRotX, ReceivedXRot);
             Receiver.Bind(addressRotY, ReceivedYRot);
             Receiver.Bind(addressRotZ, ReceivedZRot);
-
         }
 
         private void Update()
         {
-            Vector3 newPosition = testCam.transform.position + new Vector3(xPos, -yPos, zPos) * camSpeed * Time.deltaTime;
-            testCam.transform.position = newPosition;
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                SwitchCamera();
+            }
 
-            Vector3 newRotation = testCam.transform.rotation.eulerAngles + new Vector3(xRot, yRot, zRot) * rotationSpeed * Time.deltaTime;
-            testCam.transform.rotation = Quaternion.Euler(newRotation);
+            Camera currentCamera = cameras[currentCameraIndex];
+            MoveCamera(currentCamera);
+            RotateCamera(currentCamera);
 
+            SaveCameraPosition(currentCameraIndex);
+        }
+
+        void SwitchCamera()
+        {
+            currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
+
+            // Disable all cameras except the current one
+            for (int i = 0; i < cameras.Length; i++)
+            {
+                cameras[i].enabled = (i == currentCameraIndex);
+            }
+        }
+
+        void MoveCamera(Camera camera)
+        {
+            Vector3 newPosition = camera.transform.position + new Vector3(xPos, -yPos, zPos) * camSpeed * Time.deltaTime;
+            camera.transform.position = newPosition;
+        }
+
+        void RotateCamera(Camera camera)
+        {
+            Vector3 newRotation = camera.transform.rotation.eulerAngles + new Vector3(xRot, yRot, zRot) * rotationSpeed * Time.deltaTime;
+            camera.transform.rotation = Quaternion.Euler(newRotation);
         }
 
         #endregion
@@ -111,6 +140,32 @@ namespace extOSC.Examples
             {
                 zRot = value;
             }
+        }
+
+        void SaveCameraPosition(int index)
+        {
+            Camera camera = cameras[index];
+            PlayerPrefs.SetFloat($"Camera{index}PosX", camera.transform.position.x);
+            PlayerPrefs.SetFloat($"Camera{index}PosY", camera.transform.position.y);
+            PlayerPrefs.SetFloat($"Camera{index}PosZ", camera.transform.position.z);
+            PlayerPrefs.SetFloat($"Camera{index}RotX", camera.transform.eulerAngles.x);
+            PlayerPrefs.SetFloat($"Camera{index}RotY", camera.transform.eulerAngles.y);
+            PlayerPrefs.SetFloat($"Camera{index}RotZ", camera.transform.eulerAngles.z);
+            PlayerPrefs.Save();
+        }
+
+        void LoadCameraPosition(int index)
+        {
+            Camera camera = cameras[index];
+            float posX = PlayerPrefs.GetFloat($"Camera{index}PosX", camera.transform.position.x);
+            float posY = PlayerPrefs.GetFloat($"Camera{index}PosY", camera.transform.position.y);
+            float posZ = PlayerPrefs.GetFloat($"Camera{index}PosZ", camera.transform.position.z);
+            float rotX = PlayerPrefs.GetFloat($"Camera{index}RotX", camera.transform.eulerAngles.x);
+            float rotY = PlayerPrefs.GetFloat($"Camera{index}RotY", camera.transform.eulerAngles.y);
+            float rotZ = PlayerPrefs.GetFloat($"Camera{index}RotZ", camera.transform.eulerAngles.z);
+
+            camera.transform.position = new Vector3(posX, posY, posZ);
+            camera.transform.eulerAngles = new Vector3(rotX, rotY, rotZ);
         }
 
 

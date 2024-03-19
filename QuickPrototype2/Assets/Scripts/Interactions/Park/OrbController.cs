@@ -6,11 +6,11 @@ public class OrbController : MonoBehaviour
 {
     public void OrbAppear()
     {
-
+        this.gameObject.SetActive(true);
     }
 
     public void OrbDisappear()
     {
-
+        this.gameObject.SetActive(false);
     }
 }

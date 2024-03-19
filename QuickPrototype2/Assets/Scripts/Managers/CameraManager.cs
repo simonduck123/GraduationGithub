@@ -70,7 +70,7 @@ public class CameraManager : MonoBehaviour
 
     void MoveCamera(Camera camera)
     {
-        Vector3 movementDirection = camera.transform.forward * -yPos + camera.transform.right * xPos + camera.transform.up * zPos;
+        Vector3 movementDirection = camera.transform.forward * yPos + camera.transform.right * xPos + camera.transform.up * zPos;
         camera.transform.Translate(movementDirection * camSpeed * Time.deltaTime, Space.World);
     }
 

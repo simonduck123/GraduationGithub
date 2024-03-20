@@ -27,11 +27,11 @@ public class CameraManager : MonoBehaviour
     public OSCReceiver Receiver;
 
 
-    protected virtual void Start()
+    public void Start()
     {
         for (int i = 0; i < cameras.Length; i++)
         {
-            LoadCameraPosition(i);
+            //LoadCameraPosition(i);
         }
         Receiver.Bind(addressX, ReceivedX);
         Receiver.Bind(addressY, ReceivedY);
@@ -41,6 +41,30 @@ public class CameraManager : MonoBehaviour
         Receiver.Bind(addressRotZ, ReceivedZRot);
 
 
+
+
+
+        /*
+
+        CustomAnimation customAnimation = new CustomAnimation(GetComponent<Animation>(), new AnimationCurve(), new AnimationClip(), Keyframe[3]);
+        // create a new AnimationClip
+        clip = new AnimationClip();
+        clip.legacy = true;
+
+            Keyframe[] keys;
+        keys = new Keyframe[3];
+        keys[0] = new Keyframe(0.0f, 0.0f);
+        keys[1] = new Keyframe(1.0f, 1.5f);
+        keys[2] = new Keyframe(2.0f, 0.0f);
+        curve = new AnimationCurve(keys);
+        clip.SetCurve("", typeof(Transform), "localPosition.x", curve);
+        curve = new AnimationCurve(keys);
+        //clip.SetCurve("", typeof(Transform), "localPosition.x", curve);
+        clip.SetCurve("", typeof(Transform), "localPosition.y", curve);
+        //clip.SetCurve("", typeof(Transform), "localPosition.z", curve);
+
+        clip.name = "UPMovement";
+        */
     }
 
     private void Update()
@@ -54,7 +78,7 @@ public class CameraManager : MonoBehaviour
         MoveCamera(currentCamera);
         RotateCamera(currentCamera);
 
-        SaveCameraPosition(currentCameraIndex);
+        //SaveCameraPosition(currentCameraIndex);
     }
 
     void SwitchCamera()
@@ -68,12 +92,22 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    void AnimateFromNothing()
+    {
+
+    }
+
+    void PlayAnimaion(string name)
+    {
+        //anim.AddClip(clip, name);
+        //anim.Play(name);
+    }
+
     void MoveCamera(Camera camera)
     {
         Vector3 movementDirection = camera.transform.forward * yPos + camera.transform.right * xPos + camera.transform.up * zPos;
         camera.transform.Translate(movementDirection * camSpeed * Time.deltaTime, Space.World);
     }
-
 
     void RotateCamera(Camera camera)
     {
@@ -81,6 +115,7 @@ public class CameraManager : MonoBehaviour
         camera.transform.rotation = Quaternion.Euler(newRotation);
     }
 
+    /*
     void SaveCameraPosition(int index)
     {
         Camera camera = cameras[index];
@@ -107,6 +142,7 @@ public class CameraManager : MonoBehaviour
         camera.transform.eulerAngles = new Vector3(rotX, rotY, rotZ);
     }
 
+    */
     #region OSC Methods
     private void ReceivedX(OSCMessage message)
     {

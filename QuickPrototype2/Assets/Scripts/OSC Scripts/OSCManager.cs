@@ -3,7 +3,7 @@ using extOSC;
 
 public class OSCManager : MonoBehaviour
 {
-    public int ReceivePort = 7000;
+    public int ReceivePort = 7001;
     public BedroomSceneManager bedroomSceneManager;  // Assign in the Inspector
     public ParkSceneManager parkSceneManager;
     public MultipleDimensionSceneManager multiDimensionSceneManager;
@@ -51,8 +51,8 @@ public class OSCManager : MonoBehaviour
         #endregion
         #region Park
         //Flock
-        receiver.Bind("/park/flock/on", TurnOffFlock);
-        receiver.Bind("/park/flock/off", TurnOnFlock);
+        receiver.Bind("/park/flock/on", TurnOnFlock);
+        receiver.Bind("/park/flock/off", TurnOffFlock);
         //Lara
         receiver.Bind("/park/lara/enter", LaraEnter);
         receiver.Bind("/park/lara/reset", LaraResetPos);

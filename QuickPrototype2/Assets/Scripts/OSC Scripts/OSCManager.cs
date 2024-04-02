@@ -114,12 +114,14 @@ public class OSCManager : MonoBehaviour
     //Fridge
     private void OpenFridge(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/one");
+        bedroomSceneManager.HandleAction("/bedroom/fridge/open");
+        Debug.Log("OpenFridge Function");
     }
 
     private void CloseFridge(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/fridge/close");
+        Debug.Log("CloseFridge Function");
     }
 
     //Can
@@ -137,11 +139,13 @@ public class OSCManager : MonoBehaviour
     private void ComputerOn(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/computer/on");
+        Debug.Log("ComputerOn Function");
     }
 
     private void ComputerOff(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/computer/off");
+        Debug.Log("ComputerOff Function");
     }
 
     //Door

@@ -9,13 +9,13 @@ public class FridgeController : MonoBehaviour
 
     public void OpenFridge()
     {
-        fridgeOpen = true;
-        fridgeAnimator.SetBool("FridgeOpen", fridgeOpen);
+        Debug.Log("Should Open now");
+        fridgeAnimator.SetBool("FridgeOpen", true);
     }
 
     public void CloseFridge()
     {
-        fridgeOpen = false;
-        fridgeAnimator.SetBool("FridgeOpen", fridgeOpen);
+        Debug.Log("Should Close now");
+        fridgeAnimator.SetBool("FridgeOpen", false);
     }
 }

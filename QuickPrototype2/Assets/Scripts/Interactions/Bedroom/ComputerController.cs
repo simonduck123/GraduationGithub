@@ -14,11 +14,13 @@ public class ComputerController : MonoBehaviour
 
     public void TurnOnComputer()
     {
+        Debug.Log("Should Computer now");
         rendMaterial.EnableKeyword("_EMISSION");
     }
 
     public void TurnOffComputer()
     {
+        Debug.Log("Should Computer Off");
         rendMaterial.DisableKeyword("_EMISSION");
     }
 

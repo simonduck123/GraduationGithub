@@ -39,9 +39,7 @@ public class CameraManager : MonoBehaviour
         Receiver.Bind(addressRotX, ReceivedXRot);
         Receiver.Bind(addressRotY, ReceivedYRot);
         Receiver.Bind(addressRotZ, ReceivedZRot);
-
-
-
+        Receiver.Bind("/camera/next", NextCamera);
 
 
         /*
@@ -189,6 +187,11 @@ public class CameraManager : MonoBehaviour
         {
             zRot = value;
         }
+    }
+
+    private void NextCamera(OSCMessage message)
+    {
+        //function
     }
     #endregion
 }

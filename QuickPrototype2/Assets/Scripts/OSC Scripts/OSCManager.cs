@@ -115,13 +115,11 @@ public class OSCManager : MonoBehaviour
     private void OpenFridge(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/fridge/open");
-        Debug.Log("OpenFridge Function");
     }
 
     private void CloseFridge(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/fridge/close");
-        Debug.Log("CloseFridge Function");
     }
 
     //Can

@@ -139,13 +139,11 @@ public class OSCManager : MonoBehaviour
     private void ComputerOn(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/computer/on");
-        Debug.Log("ComputerOn Function");
     }
 
     private void ComputerOff(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/computer/off");
-        Debug.Log("ComputerOff Function");
     }
 
     //Door

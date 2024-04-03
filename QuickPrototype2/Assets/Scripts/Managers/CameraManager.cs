@@ -16,31 +16,31 @@ public class CameraManager : MonoBehaviour
     private float yRot;
     private float zRot;
 
-    private string addressX = "/camera/position/x";
-    private string addressY = "/camera/position/y";
-    private string addressZ = "/camera/position/z";
-    private string addressRotX = "/camera/rotation/x";
-    private string addressRotY = "/camera/rotation/y";
-    private string addressRotZ = "/camera/rotation/z";
-
     [Header("OSC Settings")]
     public OSCReceiver Receiver;
 
 
     public void Start()
     {
+
+        foreach (var camera in cameras)
+        {
+            camera.gameObject.SetActive(false);
+        }
+
         for (int i = 0; i < cameras.Length; i++)
         {
             //LoadCameraPosition(i);
         }
-        Receiver.Bind(addressX, ReceivedX);
-        Receiver.Bind(addressY, ReceivedY);
-        Receiver.Bind(addressZ, ReceivedZ);
-        Receiver.Bind(addressRotX, ReceivedXRot);
-        Receiver.Bind(addressRotY, ReceivedYRot);
-        Receiver.Bind(addressRotZ, ReceivedZRot);
+        Receiver.Bind("/camera/position/x", ReceivedX);
+        Receiver.Bind("/camera/position/y", ReceivedY);
+        Receiver.Bind("/camera/position/z", ReceivedZ);
+        Receiver.Bind("/camera/rotation/x", ReceivedXRot);
+        Receiver.Bind("/camera/rotation/y", ReceivedYRot);
+        Receiver.Bind("/camera/rotation/z", ReceivedZRot);
         Receiver.Bind("/camera/next", NextCamera);
-
+        Receiver.Bind("/camera/previous", PreviousCamera);
+        EnableCamera(currentCameraIndex);
 
         /*
 
@@ -69,7 +69,7 @@ public class CameraManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SwitchCamera();
+            SwitchNextCamera();
         }
 
         Camera currentCamera = cameras[currentCameraIndex];
@@ -79,21 +79,37 @@ public class CameraManager : MonoBehaviour
         //SaveCameraPosition(currentCameraIndex);
     }
 
-    void SwitchCamera()
+    public void SwitchNextCamera()
     {
+        // Disable the current camera
+        cameras[currentCameraIndex].gameObject.SetActive(false);
+
+        // Move to the next camera
         currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
 
-        // Disable all cameras except the current one
-        for (int i = 0; i < cameras.Length; i++)
-        {
-            cameras[i].enabled = (i == currentCameraIndex);
-        }
+        // Enable the next camera
+        EnableCamera(currentCameraIndex);
     }
 
-    void AnimateFromNothing()
+    void EnableCamera(int index)
     {
-
+        cameras[index].gameObject.SetActive(true);
     }
+
+
+    public void SwitchPreviousCamera()
+    {
+        // Disable the current camera
+        cameras[currentCameraIndex].gameObject.SetActive(false);
+
+        // Move to the next camera
+        currentCameraIndex = (currentCameraIndex - 1) % cameras.Length;
+
+        // Enable the next camera
+        EnableCamera(currentCameraIndex);
+    }
+
+
 
     void PlayAnimaion(string name)
     {
@@ -191,7 +207,12 @@ public class CameraManager : MonoBehaviour
 
     private void NextCamera(OSCMessage message)
     {
-        //function
+        SwitchNextCamera();
+    }
+
+    private void PreviousCamera(OSCMessage message)
+    {
+        SwitchPreviousCamera();
     }
     #endregion
 }

@@ -976,6 +976,8 @@ MonoBehaviour:
   tableController: {fileID: 1167088555}
   parkTransitionController: {fileID: 0}
   orbController: {fileID: 638992204}
+  leftDoorController: {fileID: 1447221063}
+  rightDoorController: {fileID: 1334286709}
 --- !u!1 &515910707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,13 +3102,15 @@ GameObject:
   - component: {fileID: 1334286703}
   - component: {fileID: 1334286708}
   - component: {fileID: 1334286707}
+  - component: {fileID: 1334286709}
+  - component: {fileID: 1334286710}
   m_Layer: 0
   m_Name: Cube.076 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1334286703
 Transform:
   m_ObjectHideFlags: 0
@@ -3115,13 +3119,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334286702}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.40299988, y: -0.384, z: -2.3180008}
   m_LocalScale: {x: 43.46854, y: 46.980938, z: 49.67442}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1715639960}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!23 &1334286707
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3172,6 +3176,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334286702}
   m_Mesh: {fileID: 5299334708804420200, guid: 45f0aea1e949fa945bea888fa010713b, type: 3}
+--- !u!114 &1334286709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334286702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96d36160267da24b841bb543bf6a136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 1334286710}
+--- !u!95 &1334286710
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334286702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7dc7f3dc64376f4698d893e9b5195f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1360060757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3432,13 +3470,15 @@ GameObject:
   - component: {fileID: 1447221062}
   - component: {fileID: 1447221061}
   - component: {fileID: 1447221060}
+  - component: {fileID: 1447221063}
+  - component: {fileID: 1447221064}
   m_Layer: 0
   m_Name: Cube.076
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1447221060
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3497,13 +3537,47 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447221056}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.40299988, y: -0.384, z: 2.3099976}
   m_LocalScale: {x: 43.46854, y: 46.980938, z: 49.67442}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1715639960}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1447221063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447221056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9168266ad44bb43b7a225a160d1855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 1447221064}
+--- !u!95 &1447221064
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447221056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7cd325b761fee64bbef8862b2bcd1e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1479294792
 GameObject:
   m_ObjectHideFlags: 0

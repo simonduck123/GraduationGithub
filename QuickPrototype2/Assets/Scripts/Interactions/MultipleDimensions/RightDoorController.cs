@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class RightDoorController : MonoBehaviour
 {
-    public void OpenMountainDoor()
+    public Animator doorAnimator;
+    public void OpenDoor()
     {
-
+        doorAnimator.SetBool("DoorOpen", true);
     }
     public void CloseDoor()
     {
-
-    }
-
-    public void OpenParkDoor()
-    {
-
+        doorAnimator.SetBool("DoorOpen", false);
     }
 }

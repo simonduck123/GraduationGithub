@@ -10,6 +10,8 @@ public class ParkSceneManager : MonoBehaviour
     public TableController tableController;
     public ParkTransitionController parkTransitionController;
     public OrbController orbController;
+    public LeftDoorController leftDoorController;
+    public RightDoorController rightDoorController;
 
     void Start()
     {
@@ -31,6 +33,12 @@ public class ParkSceneManager : MonoBehaviour
         //Orb
         actionMap.Add("/park/orb/on", orbController.OrbAppear);
         actionMap.Add("/park/orb/off", orbController.OrbDisappear);
+        //Fire Door
+        actionMap.Add("/park/door/fire/open", leftDoorController.OpenDoor);
+        actionMap.Add("/park/door/fire/close", leftDoorController.CloseDoor);
+        //Ice Door
+        actionMap.Add("/park/door/ice/open", rightDoorController.OpenDoor);
+        actionMap.Add("/park/door/ice/close", rightDoorController.CloseDoor);
     }
 
     public void HandleAction(string address)

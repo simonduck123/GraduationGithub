@@ -12,9 +12,9 @@ public class MultipleDimensionSceneManager : MonoBehaviour
     {
         actionMap = new Dictionary<string, System.Action>();
         //RightDoor
-        actionMap.Add("/dimension/rightdoor/mountain/open", rightDoorController.OpenMountainDoor);
+        //actionMap.Add("/dimension/rightdoor/mountain/open", rightDoorController.OpenMountainDoor);
         actionMap.Add("/dimension/rightdoor/close", rightDoorController.CloseDoor);
-        actionMap.Add("/dimension/rightdoor/park/open", rightDoorController.OpenParkDoor);
+        //actionMap.Add("/dimension/rightdoor/park/open", rightDoorController.OpenParkDoor);
         //LeftDoor
         actionMap.Add("/dimension/leftdoor/open", leftDoorController.OpenDoor);
         actionMap.Add("/dimension/leftdoor/close", leftDoorController.CloseDoor);

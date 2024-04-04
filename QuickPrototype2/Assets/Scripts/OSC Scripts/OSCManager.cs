@@ -67,6 +67,12 @@ public class OSCManager : MonoBehaviour
         //Orb
         receiver.Bind("/park/orb/on", OrbAppear);
         receiver.Bind("/park/orb/off", OrbDisappear);
+        //Fire Door
+        receiver.Bind("/park/door/fire/open", FireDoorOpen);
+        receiver.Bind("/park/door/fire/close", FireDoorClose);
+        //Ice Door
+        receiver.Bind("/park/door/ice/open", IceDoorOpen);
+        receiver.Bind("/park/door/ice/close", IceDoorClose);
         #endregion
         #region Dimension
         //RightDoor
@@ -213,6 +219,24 @@ public class OSCManager : MonoBehaviour
     }
     #endregion
     #region Park Functions
+    //Fire Door
+    private void FireDoorOpen(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/fire/open");
+    }
+    private void FireDoorClose(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/fire/close");
+    }
+    //Ice Door
+    private void IceDoorOpen(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/ice/open");
+    }
+    private void IceDoorClose(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/ice/close");
+    }
     //Flock
     private void TurnOffFlock(OSCMessage message)
     {

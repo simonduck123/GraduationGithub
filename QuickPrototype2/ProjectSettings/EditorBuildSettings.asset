@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bedroom Scene.unity
     guid: f6bd0cfe16756fa40b07e1589fc4897f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ParkScene.unity
     guid: aa70cffe9263da0408edbb75905a3ace
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DimensionScene.unity
     guid: b6f7796777852994e98d764b2de1950a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NewParkScene.unity
     guid: 771caa3d867698d4ea7e812b564cea2a
   m_configObjects: {}

@@ -23,8 +23,8 @@ public class ParkSceneManager : MonoBehaviour
         actionMap.Add("/park/lara/dialogue", laraCroftController.LaraDialogueOne);
         actionMap.Add("/park/lara/dialogue2", laraCroftController.LaraDialogueTwo);
         //Table
-        //actionMap.Add("/park/table/appear", tableController.TableAppear);
-        //actionMap.Add("/park/table/disappear", tableController.TableDisappear);
+        actionMap.Add("/park/table/appear", tableController.TableAppear);
+        actionMap.Add("/park/table/disappear", tableController.TableDisappear);
         //Transition
         //actionMap.Add("/park/transition/on", parkTransitionController.DoTransition);
         //actionMap.Add("/park/transition/off", parkTransitionController.UndoTransition);

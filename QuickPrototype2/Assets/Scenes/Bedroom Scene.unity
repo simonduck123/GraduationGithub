@@ -1126,33 +1126,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - 
-  - 'Kevin: Almost finished!'
-  - 'Kevin: Come in'
   - 'Dad: Kevin, we need to go, pause your game'
-  - "Kevin: Ugh dad, how many times do I have to tell you, it\u2019s online, okay?
-    ON-LINE"
   - "Dad: Oh right, I\u2019m sorry.."
   - 'Dad: But we really need to go, your mom is waiting'
-  - 'Kevin: Just give me 5 more minutes'
   - 'Dad: .... '
-  - 'Kevin: what?'
   - "Dad: It\u2019s time"
-  - "Kevin: I\u2019m almost finished, see, I\u2019m in the top 10 right now"
   - "Dad: Kevin, time\u2019s up, we have to go"
-  - 'Kevin: 10 seconds'
   - 'Dad: No Kevin'
-  - 'Kevin: 10 seconds'
   - 'Dad: Kevin..'
-  - "Mom: Come on Kevin, don\u2019t you want to plat with your nieces and nephews?"
-  - 'Kevin: How long do we have to stay?'
+  - "Mom: Come on Kevin, don\u2019t you want to play with your nieces and nephews?"
   - "Mom: Huh? We\u2019ve only been here for 5 minutes?"
-  - "Kevin: I\u2019m bored"
   - 'Mom: Honey, please, just try do so something fun'
-  - 'Kevin: ugh..'
   - 'Mom: Maybe you can help your aunt with making soup?'
-  - 'Kevin: Lame'
   - 'Mom: Just try it'
-  - "Kevin: Stupid.. dumb.. they don\u2019t even care about me"
   _tmpProText: {fileID: 1599079878}
   delayBeforeStart: 0
   timeBtwChars: 0.02

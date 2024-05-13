@@ -13,6 +13,7 @@ public class BedroomSceneManager : MonoBehaviour
     public BedroomTransitionController bedroomTransitionController;
     public DialogueManager dialogueManager;
     public CameraManager cameraManager;
+    //public DadControllerParent dadControllerParent;
 
     void Start()
     {
@@ -24,17 +25,24 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/can/appear", canController.MakeCanAppear);
         actionMap.Add("/bedroom/can/disappear", canController.MakeCanDisappear);
         //Computer
-        actionMap.Add("/bedroom/computer/on", computerController.TurnOnComputer);
-        actionMap.Add("/bedroom/computer/off", computerController.TurnOffComputer);
+        //actionMap.Add("/bedroom/computer/on", computerController.TurnOnComputer);
+        //actionMap.Add("/bedroom/computer/off", computerController.TurnOffComputer);
         //Door
-        actionMap.Add("/bedroom/door/open", doorController.OpenDoor);
-        actionMap.Add("/bedroom/door/close", doorController.CloseDoor);
-        actionMap.Add("/bedroom/door/knock", doorController.PlayKnockSound);
-        actionMap.Add("/bedroom/door/loudknock", doorController.PlayLoudKnockSound);
+        actionMap.Add("/bedroom/door/open", doorController.Open);
+        actionMap.Add("/bedroom/door/close", doorController.Close);
+        actionMap.Add("/bedroom/door/knock", doorController.Knock);
+        actionMap.Add("/bedroom/door/loudknock", doorController.LoudKnock);
         //Dad
-        actionMap.Add("/bedroom/dad/walk", dadController.WalkInside);
-        actionMap.Add("/bedroom/dad/reset", dadController.ResetDad);
-        actionMap.Add("/bedroom/dad/throw", dadController.ThrowKevin);
+        
+        actionMap.Add("/bedroom/dad/walk", dadController.Walk);
+        actionMap.Add("/bedroom/dad/talk", dadController.Talk);
+        actionMap.Add("/bedroom/dad/wave", dadController.Wave);
+        actionMap.Add("/bedroom/dad/dance", dadController.Dance);
+        actionMap.Add("/bedroom/dad/idle", dadController.Idle);
+        //actionMap.Add("/bedroom/dad/reset", dadControllerParent.ResetDad);
+        //actionMap.Add("/bedroom/dad/moveOne", dadControllerParent.MoveOne);
+        //actionMap.Add("/bedroom/dad/moveToPC", dadControllerParent.MoveTwo);
+
         //Dialogue
         actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
         actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);

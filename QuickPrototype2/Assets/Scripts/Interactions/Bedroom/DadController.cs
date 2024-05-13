@@ -6,28 +6,50 @@ using UnityEngine;
 public class DadController : MonoBehaviour
 {
     public Animator dadAnimator;
-    public void WalkInside()
+    private string currentAnimaton;
+
+    const string DAD_IDLE = "Dad_Idle";
+    const string DAD_DANCE = "Dad_Dance";
+    const string DAD_TALK = "Dad_Talk";
+    const string DAD_WALK = "Dad_Walk";
+    const string DAD_WAVE = "Dad_Wave";
+    const string DAD_RESET = "Dad_RESET";
+
+    public void Walk()
     {
-        dadAnimator.SetTrigger("MoveToRoom");
+        ChangeAnimationState(DAD_WALK);
     }
 
     public void ResetDad()
     {
-        dadAnimator.SetTrigger("Reset");
+        ChangeAnimationState(DAD_RESET);
     }
      
-    public void ThrowKevin() 
+    public void Talk() 
     {
-        dadAnimator.SetTrigger("MoveToPC");
+        ChangeAnimationState(DAD_TALK);
     }
     
-    public void Dialogue()
+    public void Wave()
     {
-        
+        ChangeAnimationState(DAD_WAVE);
     }
 
-    public void TurnPCOff()
+    public void Dance()
     {
+        ChangeAnimationState(DAD_DANCE);
+    }
 
+    public void Idle()
+    {
+        ChangeAnimationState(DAD_IDLE);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimaton == newAnimation) return;
+
+        dadAnimator.Play(newAnimation);
+        currentAnimaton = newAnimation;
     }
 }

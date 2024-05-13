@@ -30,9 +30,16 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/door/knock", PlayKnockSound);
         receiver.Bind("/bedroom/door/loudknock", PlayLoudKnockSound);
         //Dad
-        receiver.Bind("/bedroom/dad/walk", WalkInside);
+        
+        receiver.Bind("/bedroom/dad/walk", Walk);
         receiver.Bind("/bedroom/dad/reset", ResetDad);
-        receiver.Bind("/bedroom/dad/throw", ThrowKevin);
+        receiver.Bind("/bedroom/dad/talk", Talk);
+        receiver.Bind("/bedroom/dad/wave", Wave);
+        receiver.Bind("/bedroom/dad/dance", Dance);
+        receiver.Bind("/bedroom/dad/idle", Idle);
+        
+        //receiver.Bind("/bedroom/dad/moveOne", MoveOne);
+        //receiver.Bind("/bedroom/dad/moveToPC", MoveTwo);
         //Dialogue
         receiver.Bind("/bedroom/dialogue/show", ShowDialogue);
         receiver.Bind("/bedroom/dialogue/hide", HideDialogue);
@@ -172,7 +179,7 @@ public class OSCManager : MonoBehaviour
     }
 
     //Dad
-    private void WalkInside(OSCMessage message)
+    private void Walk(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/dad/walk");
     }
@@ -182,9 +189,34 @@ public class OSCManager : MonoBehaviour
         bedroomSceneManager.HandleAction("/bedroom/dad/reset");
     }
 
-    private void ThrowKevin(OSCMessage message)
+    private void Talk(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dad/throw");
+        bedroomSceneManager.HandleAction("/bedroom/dad/talk");
+    }
+
+    private void Wave(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dad/wave");
+    }
+
+    private void Dance(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dad/dance");
+    }
+
+    private void Idle(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dad/idle");
+    }
+
+    private void MoveOne(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dad/moveOne");
+    }
+
+    private void MoveTwo(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/dad/moveToPC");
     }
 
     //Dialogue

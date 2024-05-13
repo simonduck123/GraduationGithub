@@ -13,7 +13,7 @@ public class BedroomSceneManager : MonoBehaviour
     public BedroomTransitionController bedroomTransitionController;
     public DialogueManager dialogueManager;
     public CameraManager cameraManager;
-    //public DadControllerParent dadControllerParent;
+    public DadControllerParent dadControllerParent;
 
     void Start()
     {
@@ -39,9 +39,9 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dad/wave", dadController.Wave);
         actionMap.Add("/bedroom/dad/dance", dadController.Dance);
         actionMap.Add("/bedroom/dad/idle", dadController.Idle);
-        //actionMap.Add("/bedroom/dad/reset", dadControllerParent.ResetDad);
-        //actionMap.Add("/bedroom/dad/moveOne", dadControllerParent.MoveOne);
-        //actionMap.Add("/bedroom/dad/moveToPC", dadControllerParent.MoveTwo);
+        actionMap.Add("/bedroom/dad/reset", dadControllerParent.ResetDad);
+        actionMap.Add("/bedroom/dad/moveOne", dadControllerParent.MoveOne);
+        actionMap.Add("/bedroom/dad/moveToPC", dadControllerParent.MoveTwo);
 
         //Dialogue
         actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);

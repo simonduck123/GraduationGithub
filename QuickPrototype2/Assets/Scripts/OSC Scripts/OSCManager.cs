@@ -38,8 +38,8 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/dad/dance", Dance);
         receiver.Bind("/bedroom/dad/idle", Idle);
         
-        //receiver.Bind("/bedroom/dad/moveOne", MoveOne);
-        //receiver.Bind("/bedroom/dad/moveToPC", MoveTwo);
+        receiver.Bind("/bedroom/dad/moveOne", MoveOne);
+        receiver.Bind("/bedroom/dad/moveToPC", MoveTwo);
         //Dialogue
         receiver.Bind("/bedroom/dialogue/show", ShowDialogue);
         receiver.Bind("/bedroom/dialogue/hide", HideDialogue);

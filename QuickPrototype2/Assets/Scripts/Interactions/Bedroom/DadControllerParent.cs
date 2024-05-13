@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class DadControllerParent : MonoBehaviour
 {
-    public Animator dadAnimator;
     public GameObject child;
+    public Transform[] checkpoints;
+    public KeyCode[] movementKeys;
+    public AnimationCurve movementCurve;
+    public float speed = 5f;
+    private bool isMoving = false;
 
     public void MoveOne()
     {
-        dadAnimator.SetTrigger("MoveToRoom");
+        MoveToCheckpoint(1);
     }
 
     public void ResetDad()
     {
-        dadAnimator.SetTrigger("Reset");
+        MoveToCheckpoint(0);
     }
 
     public void MoveTwo()
     {
-        dadAnimator.SetTrigger("MoveToPC");
+        MoveToCheckpoint(3);
     }
 
     public void StopWalk()
@@ -31,4 +35,36 @@ public class DadControllerParent : MonoBehaviour
     {
         child.GetComponent<DadController>().Walk();
     }
+
+
+    void MoveToCheckpoint(int checkpointIndex)
+    {
+        isMoving = true;
+        Vector3 targetPosition = checkpoints[checkpointIndex].position;
+        StartCoroutine(MoveObject(targetPosition));
+    }
+
+    IEnumerator MoveObject(Vector3 targetPosition)
+    {
+        StartWalk();
+        Vector3 startPosition = transform.position;
+        float distance = Vector3.Distance(startPosition, targetPosition);
+        float duration = distance / speed;
+
+        float startTime = Time.time;
+
+        while (Time.time < startTime + duration)
+        {
+            float normalizedTime = (Time.time - startTime) / duration;
+            float curveValue = movementCurve.Evaluate(normalizedTime);
+
+            transform.position = Vector3.Lerp(startPosition, targetPosition, curveValue);
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+        isMoving = false;
+        StopWalk();
+    }
 }
+

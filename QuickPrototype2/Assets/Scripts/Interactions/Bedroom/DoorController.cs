@@ -7,6 +7,7 @@ public class DoorController : MonoBehaviour
     public Animator doorAnimator;
     public AudioClip knockAudio;
     public AudioClip loudKnockAudio;
+    public AudioClip doorOpen;
     public AudioSource audioSource;
     private string currentAnimaton;
 
@@ -28,32 +29,36 @@ public class DoorController : MonoBehaviour
     public void Open()
     {
         ChangeAnimationState(DOOR_OPEN);
+        PlayAudio(doorOpen);
     }
 
     public void Close()
     {
         ChangeAnimationState(DOOR_CLOSE);
+        PlayAudio(doorOpen);
     }
 
     public void Knock()
     {
         ChangeAnimationState(DOOR_KNOCK);
-        audioSource.clip = knockAudio;
-        audioSource.Play();
+        PlayAudio(knockAudio);
     }
 
     public void LoudKnock()
     {
         ChangeAnimationState(DOOR_LOUDKNOCK);
-        audioSource.clip = loudKnockAudio;
-        audioSource.Play();
+        PlayAudio(loudKnockAudio);
     }
 
     void ChangeAnimationState(string newAnimation)
     {
-        if (currentAnimaton == newAnimation) return;
-
         doorAnimator.Play(newAnimation);
         currentAnimaton = newAnimation;
+    }
+
+    private void PlayAudio(AudioClip audio)
+    {
+        audioSource.clip = audio;
+        audioSource.Play();
     }
 }

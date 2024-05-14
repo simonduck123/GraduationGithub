@@ -85,6 +85,12 @@ public class OSCManager : MonoBehaviour
         //Ice Door
         receiver.Bind("/park/door/ice/open", IceDoorOpen);
         receiver.Bind("/park/door/ice/close", IceDoorClose);
+        //Mom
+        receiver.Bind("/mom/animation/idle", PlayMomIdleAnim);
+        receiver.Bind("/mom/animation/talk", PlayMomTalkAnim);
+        receiver.Bind("/mom/animation/standTalk", PlayMomStandTalkAnim);
+        receiver.Bind("/mom/animation/talkPhone", PlayMomTalkPhoneAnim);
+        receiver.Bind("/mom/animation/textWalk", PlayMomTextWalkAnim);
         #endregion
         #region Dimension
         //RightDoor
@@ -263,6 +269,27 @@ public class OSCManager : MonoBehaviour
     }
     #endregion
     #region Park Functions
+    //Mom
+    private void PlayMomIdleAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/idle");
+    }
+    private void PlayMomTalkAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/talk");
+    }
+    private void PlayMomStandTalkAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/standTalk");
+    }
+    private void PlayMomTalkPhoneAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/talkPhone");
+    }
+    private void PlayMomTextWalkAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/textWalk");
+    }
     //Fire Door
     private void FireDoorOpen(OSCMessage message)
     {

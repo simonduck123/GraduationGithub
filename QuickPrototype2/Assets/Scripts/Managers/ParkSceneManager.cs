@@ -12,10 +12,18 @@ public class ParkSceneManager : MonoBehaviour
     public OrbController orbController;
     public LeftDoorController leftDoorController;
     public RightDoorController rightDoorController;
+    public MomController momController;
 
     void Start()
     {
         actionMap = new Dictionary<string, System.Action>();
+        //Mom
+        actionMap.Add("/mom/animation/idle", momController.Idle);
+        actionMap.Add("/mom/animation/talk", momController.Talk);
+        actionMap.Add("/mom/animation/standTalk", momController.StandTalk);
+        actionMap.Add("/mom/animation/talkPhone", momController.TalkPhone);
+        actionMap.Add("/mom/animation/textWalk", momController.TextWalk);
+        /*
         //Bird Flock
         actionMap.Add("/park/flock/on", flockController.TurnOnFlock);
         actionMap.Add("/park/flock/off", flockController.TurnOffFlock);
@@ -39,6 +47,7 @@ public class ParkSceneManager : MonoBehaviour
         //Ice Door
         actionMap.Add("/park/door/ice/open", rightDoorController.OpenDoor);
         actionMap.Add("/park/door/ice/close", rightDoorController.CloseDoor);
+        */
     }
 
     public void HandleAction(string address)

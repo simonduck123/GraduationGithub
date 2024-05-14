@@ -49,7 +49,7 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
         //Transition
         actionMap.Add("/bedroom/transition/do", bedroomTransitionManager.DoTransition);
-        //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
+        actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);
         //RumbleEffect
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
         /*

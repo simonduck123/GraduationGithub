@@ -51,7 +51,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/dialogue/previous", DialoguePrevious);
         //Transition
         receiver.Bind("/bedroom/transition/do", DoBedroomTransition);
-        receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
+        receiver.Bind("/bedroom/transition/park", ParkTransition);
 
         /*
         //Cameras
@@ -263,9 +263,9 @@ public class OSCManager : MonoBehaviour
     {
         bedroomSceneManager.HandleAction("/bedroom/transition/do");
     }
-    private void UndoBedroomTransition(OSCMessage message)
+    private void ParkTransition(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/transition/disappear");
+        bedroomSceneManager.HandleAction("/bedroom/transition/park");
     }
     #endregion
     #region Park Functions

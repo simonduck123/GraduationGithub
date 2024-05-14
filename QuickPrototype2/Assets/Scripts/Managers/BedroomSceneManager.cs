@@ -10,7 +10,7 @@ public class BedroomSceneManager : MonoBehaviour
     public ComputerController computerController;
     public DoorController doorController;
     public DadController dadController;
-    public BedroomTransitionController bedroomTransitionController;
+    public BedroomTransitionManager bedroomTransitionManager;
     public DialogueManager dialogueManager;
     public CameraManager cameraManager;
     public DadControllerParent dadControllerParent;
@@ -48,7 +48,7 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
         actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
         //Transition
-        //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
+        actionMap.Add("/bedroom/transition/do", bedroomTransitionManager.DoTransition);
         //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
         //RumbleEffect
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);

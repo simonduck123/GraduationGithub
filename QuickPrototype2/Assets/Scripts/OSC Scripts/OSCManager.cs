@@ -50,7 +50,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/dialogue/next", DialogueNext);
         receiver.Bind("/bedroom/dialogue/previous", DialoguePrevious);
         //Transition
-        receiver.Bind("/bedroom/transition/appear", DoBedroomTransition);
+        receiver.Bind("/bedroom/transition/do", DoBedroomTransition);
         receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
 
         /*
@@ -255,7 +255,7 @@ public class OSCManager : MonoBehaviour
     //Transition
     private void DoBedroomTransition(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/transition/appear");
+        bedroomSceneManager.HandleAction("/bedroom/transition/do");
     }
     private void UndoBedroomTransition(OSCMessage message)
     {

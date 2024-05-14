@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class BedroomTransitionManager : MonoBehaviour
 {
-    [SerializeField] private GameObject kevinRoom;
-    [SerializeField] private GameObject samRoom;
 
+    public Animator animator;
+    private string currentAnimaton;
+
+    const string TRANSITION = "transition";
+
+    public void DoTransition()
+    {
+        ChangeAnimationState(TRANSITION);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        animator.Play(newAnimation);
+        currentAnimaton = newAnimation;
+    }
 }

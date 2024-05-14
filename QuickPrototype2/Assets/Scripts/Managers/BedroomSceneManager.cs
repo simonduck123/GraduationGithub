@@ -14,6 +14,7 @@ public class BedroomSceneManager : MonoBehaviour
     public DialogueManager dialogueManager;
     public CameraManager cameraManager;
     public DadControllerParent dadControllerParent;
+    public RumbleController rumbleController;
 
     void Start()
     {
@@ -33,7 +34,6 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/door/knock", doorController.Knock);
         actionMap.Add("/bedroom/door/loudknock", doorController.LoudKnock);
         //Dad
-        
         actionMap.Add("/bedroom/dad/walk", dadController.Walk);
         actionMap.Add("/bedroom/dad/talk", dadController.Talk);
         actionMap.Add("/bedroom/dad/wave", dadController.Wave);
@@ -42,16 +42,17 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dad/reset", dadControllerParent.ResetDad);
         actionMap.Add("/bedroom/dad/moveOne", dadControllerParent.MoveOne);
         actionMap.Add("/bedroom/dad/moveToPC", dadControllerParent.MoveTwo);
-
         //Dialogue
         actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
         actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
         actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
         actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
-        /*
         //Transition
-        actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
-        actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
+        //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
+        //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
+        //RumbleEffect
+        actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
+        /*
         //Camera
         actionMap.Add("/bedroom/camera/one", cameraManager.ShowCameraOne);
         actionMap.Add("/bedroom/camera/two", cameraManager.ShowCameraTwo);

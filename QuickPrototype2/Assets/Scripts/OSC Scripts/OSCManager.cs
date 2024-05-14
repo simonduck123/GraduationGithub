@@ -14,6 +14,10 @@ public class OSCManager : MonoBehaviour
     void Start()
     {
         receiver.LocalPort = ReceivePort;
+        #region Effects
+        //Rumble
+        receiver.Bind("/effect/rumble/on", StartRumble);
+        #endregion
         #region Bedroom
         //Fridge
         receiver.Bind("/bedroom/fridge/open", OpenFridge);
@@ -48,6 +52,7 @@ public class OSCManager : MonoBehaviour
         //Transition
         receiver.Bind("/bedroom/transition/appear", DoBedroomTransition);
         receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
+
         /*
         //Cameras
         receiver.Bind("/bedroom/camera/one", CamOne);
@@ -104,6 +109,13 @@ public class OSCManager : MonoBehaviour
 
         #endregion
     }
+    #region Effects Functions
+    //Rumble
+    private void StartRumble(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/effect/rumble/on");
+    }
+    #endregion
     #region Bedroom Functions
     //Camera
     /*

@@ -24,7 +24,7 @@ public class ParkSceneManager : MonoBehaviour
         actionMap.Add("/mom/animation/talkPhone", momController.TalkPhone);
         actionMap.Add("/mom/animation/textWalk", momController.TextWalk);
         //Transition
-        //actionMap.Add("/park/transition/on", parkTransitionController.DoTransition);
+        actionMap.Add("/park/transition/on", parkTransitionController.SwapScenes);
         /*
         //Bird Flock
         actionMap.Add("/park/flock/on", flockController.TurnOnFlock);

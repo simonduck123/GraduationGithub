@@ -1,24 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParkTransitionController : MonoBehaviour
 {
     public Animator animator;
-    const string OPENINGTRAN = "OpeningTransition";
-
-    public void DoTransition()
+    public void ChangeScene()
     {
-        ChangeAnimationState(OPENINGTRAN);
+        SceneManager.LoadScene(sceneBuildIndex: 2);
     }
 
-    public void UndoTransition()
+    public void SwapScenes()
     {
-
-    }
-
-    void ChangeAnimationState(string newAnimation)
-    {
-        animator.Play(newAnimation);
+        animator.SetTrigger("OrbTrans");
     }
 }

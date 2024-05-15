@@ -105,7 +105,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 11.105882
+    m_Value: 11.411764
   compensation:
     m_OverrideState: 1
     m_Value: 0.3
@@ -276,6 +276,52 @@ MonoBehaviour:
   cascadeShadowBorder3:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-491945068683485162
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf384b154398e341b6b29969c078198, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1.65
+  maximumVelocity:
+    m_OverrideState: 0
+    m_Value: 200
+  minimumVelocity:
+    m_OverrideState: 0
+    m_Value: 2
+  cameraMotionBlur:
+    m_OverrideState: 0
+    m_Value: 1
+  specialCameraClampMode:
+    m_OverrideState: 0
+    m_Value: 0
+  cameraVelocityClamp:
+    m_OverrideState: 0
+    m_Value: 0.05
+  cameraTranslationVelocityClamp:
+    m_OverrideState: 0
+    m_Value: 0.05
+  cameraRotationVelocityClamp:
+    m_OverrideState: 0
+    m_Value: 0.03
+  depthComparisonExtent:
+    m_OverrideState: 0
+    m_Value: 1
+  m_SampleCount:
+    m_OverrideState: 1
+    m_Value: 8
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +342,7 @@ MonoBehaviour:
   - {fileID: 4016043504668750284}
   - {fileID: -3689814228129160566}
   - {fileID: 485742554614523489}
+  - {fileID: -491945068683485162}
 --- !u!114 &485742554614523489
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -329,10 +376,10 @@ MonoBehaviour:
     m_Value: 0
   farFocusStart:
     m_OverrideState: 1
-    m_Value: 13.69
+    m_Value: 14.7
   farFocusEnd:
     m_OverrideState: 1
-    m_Value: 206.6
+    m_Value: 239.9
   m_NearSampleCount:
     m_OverrideState: 1
     m_Value: 5
@@ -378,7 +425,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.065
+    m_Value: 0.18
   scatter:
     m_OverrideState: 1
     m_Value: 0.7
@@ -494,13 +541,13 @@ MonoBehaviour:
     m_Value: 1000
   baseHeight:
     m_OverrideState: 1
-    m_Value: -2.9
+    m_Value: -7.9
   maximumHeight:
     m_OverrideState: 0
     m_Value: 162.2
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 62.26
+    m_Value: 18.5
   enableVolumetricFog:
     m_OverrideState: 0
     m_Value: 0

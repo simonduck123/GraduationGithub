@@ -15,6 +15,7 @@ public class BedroomSceneManager : MonoBehaviour
     public CameraManager cameraManager;
     public DadControllerParent dadControllerParent;
     public RumbleController rumbleController;
+    public LampController lampController;
 
     void Start()
     {
@@ -26,8 +27,8 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/can/appear", canController.MakeCanAppear);
         actionMap.Add("/bedroom/can/disappear", canController.MakeCanDisappear);
         //Computer
-        //actionMap.Add("/bedroom/computer/on", computerController.TurnOnComputer);
-        //actionMap.Add("/bedroom/computer/off", computerController.TurnOffComputer);
+        actionMap.Add("/bedroom/computer/on", computerController.PlayVideo);
+        actionMap.Add("/bedroom/computer/off", computerController.StopVideoPlayer);
         //Door
         actionMap.Add("/bedroom/door/open", doorController.Open);
         actionMap.Add("/bedroom/door/close", doorController.Close);
@@ -50,6 +51,9 @@ public class BedroomSceneManager : MonoBehaviour
         //Transition
         actionMap.Add("/bedroom/transition/do", bedroomTransitionManager.DoTransition);
         actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);
+        //Lamp
+        actionMap.Add("/bedroom/lamp/on", lampController.TurnOnLamp);
+        actionMap.Add("/bedroom/lamp/off", lampController.TurnOffLamp);
         //RumbleEffect
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
         /*

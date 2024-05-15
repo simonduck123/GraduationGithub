@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ComputerController : MonoBehaviour
 {
-    public Renderer rend;
-    public Material rendMaterial;
+    public VideoPlayer videoPlayer;
 
-    private void Start()
+    public void StopVideoPlayer()
     {
-        rendMaterial = rend.GetComponent<Renderer>().materials[1];
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
     }
 
-    public void TurnOnComputer()
+    public void PlayVideo()
     {
-        rendMaterial.EnableKeyword("_EMISSION");
-    }
-
-    public void TurnOffComputer()
-    {
-        rendMaterial.DisableKeyword("_EMISSION");
+        if (!videoPlayer.isPlaying)
+        {
+            videoPlayer.Play();
+        }
     }
 
 }

@@ -23,6 +23,8 @@ public class ParkSceneManager : MonoBehaviour
         actionMap.Add("/mom/animation/standTalk", momController.StandTalk);
         actionMap.Add("/mom/animation/talkPhone", momController.TalkPhone);
         actionMap.Add("/mom/animation/textWalk", momController.TextWalk);
+        //Transition
+        //actionMap.Add("/park/transition/on", parkTransitionController.DoTransition);
         /*
         //Bird Flock
         actionMap.Add("/park/flock/on", flockController.TurnOnFlock);
@@ -35,8 +37,6 @@ public class ParkSceneManager : MonoBehaviour
         //Table
         actionMap.Add("/park/table/appear", tableController.TableAppear);
         actionMap.Add("/park/table/disappear", tableController.TableDisappear);
-        //Transition
-        //actionMap.Add("/park/transition/on", parkTransitionController.DoTransition);
         //actionMap.Add("/park/transition/off", parkTransitionController.UndoTransition);
         //Orb
         actionMap.Add("/park/orb/on", orbController.OrbAppear);

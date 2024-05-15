@@ -52,6 +52,9 @@ public class OSCManager : MonoBehaviour
         //Transition
         receiver.Bind("/bedroom/transition/do", DoBedroomTransition);
         receiver.Bind("/bedroom/transition/park", ParkTransition);
+        //Lamp
+        receiver.Bind("/bedroom/lamp/on", LampOn);
+        receiver.Bind("/bedroom/lamp/off", LampOff);
 
         /*
         //Cameras
@@ -142,6 +145,17 @@ public class OSCManager : MonoBehaviour
         bedroomSceneManager.HandleAction("/bedroom/camera/four");
     }
     */
+
+    //Lamp
+    private void LampOn(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/lamp/on");
+    }
+
+    private void LampOff(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/lamp/off");
+    }
     //Fridge
     private void OpenFridge(OSCMessage message)
     {

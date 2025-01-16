@@ -4,7 +4,7 @@ using extOSC;
 public class OSCManager : MonoBehaviour
 {
     public int ReceivePort = 7001;
-    public BedroomSceneManager bedroomSceneManager;  // Assign in the Inspector
+    public BedroomSceneManager bedroomSceneManager; 
     public ParkSceneManager parkSceneManager;
     public MultipleDimensionSceneManager multiDimensionSceneManager;
     public NewParkManager NewParkManager;
@@ -55,6 +55,9 @@ public class OSCManager : MonoBehaviour
         //Lamp
         receiver.Bind("/bedroom/lamp/on", LampOn);
         receiver.Bind("/bedroom/lamp/off", LampOff);
+
+        //NewCamera
+        receiver.Bind("/bedroom/cam/start", DoStartTransition);
 
         /*
         //Cameras
@@ -145,6 +148,13 @@ public class OSCManager : MonoBehaviour
         bedroomSceneManager.HandleAction("/bedroom/camera/four");
     }
     */
+
+    //New Camera
+
+    private void DoStartTransition(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/cam/start");
+    }
 
     //Lamp
     private void LampOn(OSCMessage message)

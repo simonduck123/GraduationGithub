@@ -10,7 +10,7 @@ public class BedroomSceneManager : MonoBehaviour
     public ComputerController computerController;
     public DoorController doorController;
     public DadController dadController;
-    public BedroomTransitionManager bedroomTransitionManager;
+    public BedroomTransitionController bedroomTransitionController;
     public DialogueManager dialogueManager;
     public CameraManager cameraManager;
     public DadControllerParent dadControllerParent;
@@ -22,7 +22,7 @@ public class BedroomSceneManager : MonoBehaviour
     {
         actionMap = new Dictionary<string, System.Action>();
         //New Camera
-        //actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
+        actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
         //Fridge
         actionMap.Add("/bedroom/fridge/open", fridgeController.OpenFridge);
         actionMap.Add("/bedroom/fridge/close", fridgeController.CloseFridge);
@@ -52,8 +52,8 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
         actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
         //Transition
-        actionMap.Add("/bedroom/transition/do", bedroomTransitionManager.DoTransition);
-        actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);
+        actionMap.Add("/bedroom/transition/do", bedroomTransitionController.DoTransition);
+        //actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);
         //Lamp
         actionMap.Add("/bedroom/lamp/on", lampController.TurnOnLamp);
         actionMap.Add("/bedroom/lamp/off", lampController.TurnOffLamp);

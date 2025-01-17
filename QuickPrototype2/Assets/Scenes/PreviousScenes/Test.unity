@@ -1630,10 +1630,10 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: -5462574795670186314, guid: 612b0981434b95246a5a4c0c65082eb6, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -9222413849553846454, guid: 612b0981434b95246a5a4c0c65082eb6, type: 2}
-    value: {fileID: 0}
+  - key: {fileID: -872118831994109485, guid: 612b0981434b95246a5a4c0c65082eb6, type: 2}
+    value: {fileID: 8362806284782299466}
+  - key: {fileID: 809699652851173171, guid: 612b0981434b95246a5a4c0c65082eb6, type: 2}
+    value: {fileID: 8112556554958330144}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &838904387
@@ -7468,7 +7468,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8924866416925582643}
-  m_LocalEulerAnglesHint: {x: 0, y: 17, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 344, z: 0}
 --- !u!1 &391090857394745521
 GameObject:
   m_ObjectHideFlags: 0
@@ -8454,6 +8454,7 @@ GameObject:
   - component: {fileID: 368240840032224686}
   - component: {fileID: 6447026677369510564}
   - component: {fileID: 8112556554958330143}
+  - component: {fileID: 8112556554958330144}
   m_Layer: 0
   m_Name: Camera Right
   m_TagString: MainCamera
@@ -15127,6 +15128,28 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!95 &8112556554958330144
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237389502708392258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8160168808304668539
 GameObject:
   m_ObjectHideFlags: 0
@@ -15356,6 +15379,7 @@ GameObject:
   - component: {fileID: 5536055335074036547}
   - component: {fileID: 1388354682729049944}
   - component: {fileID: 8014818148425691393}
+  - component: {fileID: 8362806284782299466}
   m_Layer: 0
   m_Name: Camera Left
   m_TagString: MainCamera
@@ -15363,6 +15387,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &8362806284782299466
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362806284782299465}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &8413824787197566003
 MeshFilter:
   m_ObjectHideFlags: 0

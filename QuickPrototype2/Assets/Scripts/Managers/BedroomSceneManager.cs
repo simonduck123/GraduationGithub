@@ -22,7 +22,7 @@ public class BedroomSceneManager : MonoBehaviour
     {
         actionMap = new Dictionary<string, System.Action>();
         //New Camera
-        actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
+        //actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
         //Fridge
         actionMap.Add("/bedroom/fridge/open", fridgeController.OpenFridge);
         actionMap.Add("/bedroom/fridge/close", fridgeController.CloseFridge);

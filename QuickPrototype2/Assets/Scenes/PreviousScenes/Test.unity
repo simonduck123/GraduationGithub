@@ -1909,6 +1909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0f7814f2fcf8c488bccfa125a7933b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 905514134}
 --- !u!95 &905514134
 Animator:
   serializedVersion: 7
@@ -3573,7 +3574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: ReceivePort
-      value: 1
+      value: 7001
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: parkSceneManager
@@ -3589,7 +3590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5606233226918211864, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: _localPort
-      value: 1
+      value: 7001
       objectReference: {fileID: 0}
     - target: {fileID: 8788868309198210661, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: m_LocalPosition.x

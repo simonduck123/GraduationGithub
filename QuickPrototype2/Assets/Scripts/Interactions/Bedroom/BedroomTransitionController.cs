@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BedroomTransitionController : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     public void DoTransition()
     {
         animator.SetTrigger("do");

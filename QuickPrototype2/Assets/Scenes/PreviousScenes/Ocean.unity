@@ -1307,7 +1307,6 @@ GameObject:
   m_Component:
   - component: {fileID: 528904509}
   - component: {fileID: 528904512}
-  - component: {fileID: 528904511}
   - component: {fileID: 528904510}
   m_Layer: 0
   m_Name: RightCamera
@@ -1470,14 +1469,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &528904511
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528904508}
-  m_Enabled: 1
 --- !u!20 &528904512
 Camera:
   m_ObjectHideFlags: 0
@@ -1765,7 +1756,6 @@ GameObject:
   m_Component:
   - component: {fileID: 627884338}
   - component: {fileID: 627884341}
-  - component: {fileID: 627884340}
   - component: {fileID: 627884339}
   m_Layer: 0
   m_Name: LeftCamera
@@ -1928,14 +1918,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &627884340
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627884337}
-  m_Enabled: 1
 --- !u!20 &627884341
 Camera:
   m_ObjectHideFlags: 0
@@ -2435,6 +2417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625769435}
   - component: {fileID: 1625769436}
+  - component: {fileID: 1625769437}
   m_Layer: 0
   m_Name: TimelineManager
   m_TagString: Untagged
@@ -2467,8 +2450,8 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: eb496a5b648af574e99634131e3f20b4, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
+  m_InitialState: 0
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -2476,6 +2459,19 @@ PlayableDirector:
     value: {fileID: 8924866416911285380}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1625769437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625769434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c993396ed6d5347905cccf5a341b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 1625769436}
 --- !u!1 &1897936526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,6 +2481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897936527}
+  - component: {fileID: 1897936528}
   m_Layer: 0
   m_Name: BeachManager
   m_TagString: Untagged
@@ -2507,6 +2504,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1897936528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897936526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41335fe6eafdae64b8c6baa539ffa956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timelineManager: {fileID: 1625769437}
 --- !u!1001 &1898377976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2592,6 +2602,18 @@ PrefabInstance:
     - target: {fileID: 778709661894698026, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: m_Name
       value: OSC Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
+      propertyPath: ReceivePort
+      value: 7001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
+      propertyPath: beachManager
+      value: 
+      objectReference: {fileID: 1897936528}
+    - target: {fileID: 5606233226918211864, guid: a96586c242269a94187e8c64c9b83550, type: 3}
+      propertyPath: _localPort
+      value: 7001
       objectReference: {fileID: 0}
     - target: {fileID: 8788868309198210661, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2793,7 +2815,7 @@ Animator:
   m_GameObject: {fileID: 4362755417232150033}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 434794b73bb4b4f428d61a7fc0b78fd5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2814,6 +2836,6 @@ SceneRoots:
   - {fileID: 8924866416911285379}
   - {fileID: 572611742}
   - {fileID: 2004770741}
-  - {fileID: 1897936527}
   - {fileID: 1625769435}
+  - {fileID: 1897936527}
   - {fileID: 544710561}

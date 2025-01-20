@@ -8,6 +8,7 @@ public class OSCManager : MonoBehaviour
     public ParkSceneManager parkSceneManager;
     public MultipleDimensionSceneManager multiDimensionSceneManager;
     public NewParkManager NewParkManager;
+    public BeachManager beachManager;
     public OSCReceiver receiver;
     public OSCTransmitter transmitter;
 
@@ -55,6 +56,11 @@ public class OSCManager : MonoBehaviour
 
         //NewCamera
         receiver.Bind("/bedroom/cam/start", DoStartTransition);
+        #endregion
+        #region Beach
+        //Timeline Start
+        receiver.Bind("/beach/cam/start", PlayTimelineOne);
+        receiver.Bind("/beach/cam/restart", RestartTimelineOne);
         #endregion
         #region Park
         //Flock
@@ -243,6 +249,17 @@ public class OSCManager : MonoBehaviour
     private void ParkTransition(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/transition/park");
+    }
+    #endregion
+    #region Beach Functions
+    private void PlayTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/start");
+    }
+
+    private void RestartTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/restart");
     }
     #endregion
     #region Park Functions

@@ -13,10 +13,16 @@ public class MomController : MonoBehaviour
     const string MOM_STANDTALK = "Mom_StandingTalk";
     const string MOM_TALKPHONE = "Mom_TalkPhone";
     const string MOM_TEXTWALK = "Mom_TextWalk";
+    const string MOM_WALK = "Mom_Walk";
 
     public void Idle()
     {
         ChangeAnimationState(MOM_IDLE);
+    }
+
+    public void Walk()
+    {
+        ChangeAnimationState(MOM_WALK);
     }
 
     public void Talk()

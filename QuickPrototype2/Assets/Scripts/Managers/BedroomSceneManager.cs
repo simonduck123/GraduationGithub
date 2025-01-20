@@ -11,8 +11,8 @@ public class BedroomSceneManager : MonoBehaviour
     public DoorController doorController;
     public DadController dadController;
     public BedroomTransitionController bedroomTransitionController;
-    public DialogueManager dialogueManager;
-    public CameraManager cameraManager;
+    //public DialogueManager dialogueManager;
+    //public CameraManager cameraManager;
     public DadControllerParent dadControllerParent;
     public RumbleController rumbleController;
     public LampController lampController;
@@ -47,10 +47,10 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/dad/moveOne", dadControllerParent.MoveOne);
         actionMap.Add("/bedroom/dad/moveToPC", dadControllerParent.MoveTwo);
         //Dialogue
-        actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
-        actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
-        actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
-        actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
+        //actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
+        //actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
+        //actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
+        //actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
         //Transition
         actionMap.Add("/bedroom/transition/do", bedroomTransitionController.DoTransition);
         //actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);

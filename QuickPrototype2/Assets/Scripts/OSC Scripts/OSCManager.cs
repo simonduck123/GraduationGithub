@@ -9,6 +9,7 @@ public class OSCManager : MonoBehaviour
     public MultipleDimensionSceneManager multiDimensionSceneManager;
     public NewParkManager NewParkManager;
     public BeachManager beachManager;
+    public BrotherBedroomManager brotherBedroomManager;
     public OSCReceiver receiver;
     public OSCTransmitter transmitter;
 
@@ -61,6 +62,20 @@ public class OSCManager : MonoBehaviour
         //Timeline Start
         receiver.Bind("/beach/cam/start", PlayTimelineOne);
         receiver.Bind("/beach/cam/restart", RestartTimelineOne);
+        #endregion
+        #region Brother Bedroom
+        //Brother
+        receiver.Bind("/brotherRoom/brother/slam", BrotherSlam);
+        receiver.Bind("/brotherRoom/brother/standToFight", BrotherStandToFight);
+        receiver.Bind("/brotherRoom/brother/idleFight", BrotherIdleFight);
+        receiver.Bind("/brotherRoom/brother/fightToStand", BrotherFightToStand);
+        receiver.Bind("/brotherRoom/brother/walk", BrotherWalk);
+        receiver.Bind("/brotherRoom/brother/getHit", BrotherGetHit);
+        receiver.Bind("/brotherRoom/brother/nod", BrotherNod); 
+        receiver.Bind("/brotherRoom/brother/rightHook", BrotherRightHook);
+        receiver.Bind("/brotherRoom/brother/zombiePunch", BrotherZombiePunch);
+        //transition
+        receiver.Bind("/brotherRoom/transition/do", TransitionDoBrotherRoom);
         #endregion
         #region Park
         //Flock
@@ -260,6 +275,49 @@ public class OSCManager : MonoBehaviour
     private void RestartTimelineOne(OSCMessage message)
     {
         beachManager.HandleAction("/beach/cam/restart");
+    }
+    #endregion
+    #region BrotherRoom Functions
+    //transition
+    private void TransitionDoBrotherRoom(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/transition/do");
+    }
+    private void BrotherSlam(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/slam");
+    }
+    private void BrotherStandToFight(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/standToFight");
+    }
+    private void BrotherIdleFight(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/idleFight");
+    }
+    private void BrotherFightToStand(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/fightToStand");
+    }
+    private void BrotherWalk(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/walk");
+    }
+    private void BrotherGetHit(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/getHit");
+    }
+    private void BrotherNod(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/nod");
+    }
+    private void BrotherRightHook(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/rightHook");
+    }
+    private void BrotherZombiePunch(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/zombiePunch");
     }
     #endregion
     #region Park Functions

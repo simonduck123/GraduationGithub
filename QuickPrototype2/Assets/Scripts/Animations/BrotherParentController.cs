@@ -11,6 +11,10 @@ public class BrotherParentController : MonoBehaviour
     const string BROTHER_SLAM = "Brother_Slam";
     const string BROTHER_STAND_TO_FIGHT = "Brother_Stand_To_Fight";
     const string BROTHER_FIGHT_TO_STAND = "Brother_Fight_To_Stand";
+    const string BROTHER_GET_HIT = "Brother_Get_Hit";
+    const string BROTHER_NOD = "Brother_Nod";
+    const string BROTHER_RIGHT_HOOK = "Brother_Right_Hook";
+    const string BROTHER_ZOMBIE_PUNCH = "Brother_Zombie_Punch";
 
     public void BrotherIdle()
     {
@@ -40,6 +44,26 @@ public class BrotherParentController : MonoBehaviour
     public void BrotherFightToStand()
     {
         ChangeAnimationState(BROTHER_FIGHT_TO_STAND);
+    }
+
+    public void BrotherGetHit()
+    {
+        ChangeAnimationState(BROTHER_GET_HIT);
+    }
+
+    public void BrotherNod()
+    {
+        ChangeAnimationState(BROTHER_NOD);
+    }
+
+    public void BrotherRightHook()
+    {
+        ChangeAnimationState(BROTHER_RIGHT_HOOK);
+    }
+
+    public void BrotherZombiePunch()
+    {
+        ChangeAnimationState(BROTHER_ZOMBIE_PUNCH);
     }
 
     void ChangeAnimationState(string newAnimation)

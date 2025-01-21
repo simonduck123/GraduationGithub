@@ -2451,6 +2451,7 @@ GameObject:
   - component: {fileID: 1625769435}
   - component: {fileID: 1625769436}
   - component: {fileID: 1625769437}
+  - component: {fileID: 1625769438}
   m_Layer: 0
   m_Name: TimelineManager
   m_TagString: Untagged
@@ -2513,6 +2514,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1625769436}
+--- !u!114 &1625769438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625769434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 0d58f6bbefef72940bc4c790a4b53b72, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1625769436}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1897936526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,7 +2677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: ReceivePort
-      value: 7001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: beachManager
@@ -2654,7 +2685,7 @@ PrefabInstance:
       objectReference: {fileID: 1897936528}
     - target: {fileID: 5606233226918211864, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: _localPort
-      value: 7001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8788868309198210661, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: m_LocalPosition.x

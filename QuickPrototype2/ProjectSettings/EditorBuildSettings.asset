@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PreviousScenes/Ocean.unity
     guid: 8b10ec49b8f269a4f8b262b794f19c3a
+  - enabled: 1
+    path: Assets/Scenes/PreviousScenes/Kitchen-Bedroom.unity
+    guid: 36e4edbc4dbf81c46a25a93158756fe4
   - enabled: 0
     path: Assets/Scenes/PreviousScenes/ParkScene.unity
     guid: aa70cffe9263da0408edbb75905a3ace

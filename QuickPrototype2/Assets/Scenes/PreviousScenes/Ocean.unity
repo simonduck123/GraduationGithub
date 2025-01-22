@@ -2542,7 +2542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: ReceivePort
-      value: 1
+      value: 7001
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: beachManager
@@ -2550,7 +2550,7 @@ PrefabInstance:
       objectReference: {fileID: 1897936528}
     - target: {fileID: 5606233226918211864, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: _localPort
-      value: 1
+      value: 7001
       objectReference: {fileID: 0}
     - target: {fileID: 8788868309198210661, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: m_LocalPosition.x

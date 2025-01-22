@@ -13,7 +13,6 @@ public class TimelineManager : MonoBehaviour
         if (playableDirector != null)
         {
             playableDirector.Play();
-            Debug.Log("Play");
         }
     }
 
@@ -21,9 +20,15 @@ public class TimelineManager : MonoBehaviour
     {
         if (playableDirector != null)
         {
+            playableDirector.time = 0;
+        }
+    }
+
+    public void PauseTimeline()
+    {
+        if (playableDirector != null)
+        {
             playableDirector.Pause();
-           // playableDirector.time = 0;
-            Debug.Log("Restart");
         }
     }
 

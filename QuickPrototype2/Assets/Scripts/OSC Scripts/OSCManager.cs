@@ -62,6 +62,7 @@ public class OSCManager : MonoBehaviour
         //Timeline Start
         receiver.Bind("/beach/cam/start", PlayTimelineOne);
         receiver.Bind("/beach/cam/restart", RestartTimelineOne);
+        receiver.Bind("/beach/cam/pause", PauseTimelineOne);
         #endregion
         #region Brother Bedroom
         //Brother
@@ -271,10 +272,13 @@ public class OSCManager : MonoBehaviour
     {
         beachManager.HandleAction("/beach/cam/start");
     }
-
     private void RestartTimelineOne(OSCMessage message)
     {
         beachManager.HandleAction("/beach/cam/restart");
+    }
+    private void PauseTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/pause");
     }
     #endregion
     #region BrotherRoom Functions

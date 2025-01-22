@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 127.78746601548056
+  m_Time: 149.7333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: c675e5c873574ff42a6e08c2c66d2705, type: 2}
@@ -2725,7 +2725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 126.1374660154806
+  m_Time: 148.08333333333334
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 0d58f6bbefef72940bc4c790a4b53b72, type: 2}
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   - {fileID: 4721865007608187776}
   - {fileID: -8477202943816870486}
   - {fileID: -8591672996115164150}
-  m_FixedDuration: 144.31666666666666
+  m_FixedDuration: 150.51666666666668
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
@@ -5191,7 +5191,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Recorded (2)
   - m_Version: 1
-    m_Start: 126.1374660154806
+    m_Start: 148.08333333333334
     m_ClipIn: 0
     m_Asset: {fileID: 318029591484706552}
     m_Duration: 1.6500000000000057
@@ -5439,7 +5439,7 @@ MonoBehaviour:
     m_Recordable: 1
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0
+    m_PostExtrapolationTime: 21.945867317852844
     m_PreExtrapolationTime: 0
     m_DisplayName: Recorded (9)
   - m_Version: 1

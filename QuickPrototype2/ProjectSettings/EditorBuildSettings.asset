@@ -29,5 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PreviousScenes/NewParkScene.unity
     guid: 771caa3d867698d4ea7e812b564cea2a
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 6c1158ece87f52f40aa2c4c77b21911f, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 7cf89ee184c9af4439fd2b193ddf9f9a, type: 2}
   m_UseUCBPForAssetBundles: 0

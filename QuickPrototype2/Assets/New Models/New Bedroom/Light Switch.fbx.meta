@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02a94e3c64a116547bce8cec5141d197
+guid: 008bcf2109dab8e41bb924a27796627c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Paintings
-    second: {fileID: 2100000, guid: 958d91845d57d354ebc844cd33195ef6, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 40ec608069b9c1d40812d1837a191c90, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Paintings.001
-    second: {fileID: 2100000, guid: 958d91845d57d354ebc844cd33195ef6, type: 2}
+      name: Material.003
+    second: {fileID: 2100000, guid: 40ec608069b9c1d40812d1837a191c90, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

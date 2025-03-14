@@ -19,10 +19,14 @@ public class BedroomSceneManager : MonoBehaviour
     public RumbleController rumbleController;
     public LampController lampController;
     public BedroomCameraController bedroomCameraController;
+    public LightController lightController;
 
     void Start()
     {
         actionMap = new Dictionary<string, System.Action>();
+        //lights
+        actionMap.Add("/bedroom/lights/on", lightController.TurnOnLights);
+        actionMap.Add("/bedroom/lights/off", lightController.TurnOffLights);
         //New Camera
         actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
         //Fridge

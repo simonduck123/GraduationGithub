@@ -10,6 +10,7 @@ public class OSCManager : MonoBehaviour
     public NewParkManager NewParkManager;
     public BeachManager beachManager;
     public BrotherBedroomManager brotherBedroomManager;
+    public SceneHandler sceneHandler;
     public OSCReceiver receiver;
     public OSCTransmitter transmitter;
 
@@ -21,7 +22,9 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/effect/rumble/on", StartRumble);
         #endregion
         #region Bedroom
+        receiver.Bind("/reset", ResetScene);
         //Lights
+
         receiver.Bind("/bedroom/lights/on", LightsOn);
         receiver.Bind("/bedroom/lights/off", LightsOff);
         //Fridge
@@ -155,6 +158,12 @@ public class OSCManager : MonoBehaviour
         bedroomSceneManager.HandleAction("/bedroom/lights/off");
     }
     //New Camera
+
+
+    private void ResetScene(OSCMessage message)
+    {
+        sceneHandler.HandleAction("/reset");
+    }
 
     private void DoStartTransition(OSCMessage message)
     {

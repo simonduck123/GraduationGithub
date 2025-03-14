@@ -12,6 +12,11 @@ public class BedroomCameraController : MonoBehaviour
         animator.SetTrigger("StartScene");
     }
 
+    public void ResetBedroomScene()
+    {
+        //animator.SetTrigger("Reset");
+    }
+
     public void StartBrother()
     {
         brother.SetActive(true);

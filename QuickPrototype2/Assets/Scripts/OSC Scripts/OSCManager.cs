@@ -25,8 +25,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/reset", ResetScene);
         //Lights
 
-        receiver.Bind("/bedroom/lights/on", LightsOn);
-        receiver.Bind("/bedroom/lights/off", LightsOff);
+        receiver.Bind("/bedroom/lights/do", LightsDo);;
         //Fridge
         receiver.Bind("/bedroom/fridge/open", OpenFridge);
         receiver.Bind("/bedroom/fridge/close", CloseFridge);
@@ -148,15 +147,11 @@ public class OSCManager : MonoBehaviour
     #region Bedroom Functions
     //lights
 
-    private void LightsOn(OSCMessage message)
+    private void LightsDo(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/lights/on");
+        bedroomSceneManager.HandleAction("/bedroom/lights/do");
     }
 
-    private void LightsOff(OSCMessage message)
-    {
-        bedroomSceneManager.HandleAction("/bedroom/lights/off");
-    }
     //New Camera
 
 

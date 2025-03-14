@@ -5,17 +5,25 @@ using UnityEngine;
 public class FridgeController : MonoBehaviour
 {
     public Animator fridgeAnimator;
-    public bool fridgeOpen;
+    public AudioClip doorOpen;
+    public AudioClip doorClose;
+    public AudioSource audioSource;
 
     public void OpenFridge()
     {
-        fridgeOpen = true;
-        fridgeAnimator.SetBool("FridgeOpen", fridgeOpen);
+        fridgeAnimator.SetBool("FridgeOpen", true);
+        PlayAudio(doorOpen);
     }
 
     public void CloseFridge()
     {
-        fridgeOpen = false;
-        fridgeAnimator.SetBool("FridgeOpen", fridgeOpen);
+        fridgeAnimator.SetBool("FridgeOpen", false);
+        PlayAudio(doorClose);
+    }
+
+    private void PlayAudio(AudioClip audio)
+    {
+        audioSource.clip = audio;
+        audioSource.Play();
     }
 }

@@ -9,14 +9,27 @@ public class BedroomSceneManager : MonoBehaviour
     public CanController canController;
     public ComputerController computerController;
     public DoorController doorController;
-    public DadController dadController;
+    //public DadController dadController;
     public BedroomTransitionController bedroomTransitionController;
-    public DialogueManager dialogueManager;
-    public CameraManager cameraManager;
+    //public DialogueManager dialogueManager;
+    //public CameraManager cameraManager;
+    //public DadControllerParent dadControllerParent;
+    public MomController momController;
+    public MomParentController momParentController;
+    public RumbleController rumbleController;
+    public LampController lampController;
+    public BedroomCameraController bedroomCameraController;
+    public LightController lightController;
 
     void Start()
     {
         actionMap = new Dictionary<string, System.Action>();
+        //lights
+        actionMap.Add("/bedroom/lights/on", lightController.TurnOnLights);
+        actionMap.Add("/bedroom/lights/off", lightController.TurnOffLights);
+        //New Camera
+        actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
+        actionMap.Add("/reset", bedroomCameraController.ResetBedroomScene);
         //Fridge
         actionMap.Add("/bedroom/fridge/open", fridgeController.OpenFridge);
         actionMap.Add("/bedroom/fridge/close", fridgeController.CloseFridge);
@@ -24,35 +37,36 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/can/appear", canController.MakeCanAppear);
         actionMap.Add("/bedroom/can/disappear", canController.MakeCanDisappear);
         //Computer
-        actionMap.Add("/bedroom/computer/on", computerController.TurnOnComputer);
-        actionMap.Add("/bedroom/computer/off", computerController.TurnOffComputer);
+        actionMap.Add("/bedroom/computer/on", computerController.PlayVideo);
+        actionMap.Add("/bedroom/computer/off", computerController.StopVideoPlayer);
         //Door
-        actionMap.Add("/bedroom/door/open", doorController.OpenDoor);
-        actionMap.Add("/bedroom/door/close", doorController.CloseDoor);
-        actionMap.Add("/bedroom/door/knock", doorController.PlayKnockSound);
-        actionMap.Add("/bedroom/door/loudknock", doorController.PlayLoudKnockSound);
-        //Dad
-        actionMap.Add("/bedroom/dad/walk", dadController.WalkInside);
-        actionMap.Add("/bedroom/dad/reset", dadController.ResetDad);
-        actionMap.Add("/bedroom/dad/throw", dadController.ThrowKevin);
-        //Dialogue
-        actionMap.Add("/bedroom/dialogue/next", dialogueManager.NextDialogue);
-        actionMap.Add("/bedroom/dialogue/previous", dialogueManager.PreviousDialogue);
-        actionMap.Add("/bedroom/dialogue/show", dialogueManager.ShowDialogue);
-        actionMap.Add("/bedroom/dialogue/hide", dialogueManager.HideDialogue);
+        actionMap.Add("/bedroom/door/open", doorController.Open);
+        actionMap.Add("/bedroom/door/close", doorController.Close);
+        actionMap.Add("/bedroom/door/knock", doorController.Knock);
+        actionMap.Add("/bedroom/door/loudknock", doorController.LoudKnock);
+        //Mom
+        actionMap.Add("/bedroom/mom/walk", momController.Walk);
+        actionMap.Add("/bedroom/mom/talk", momController.Talk);
+        actionMap.Add("/bedroom/mom/standTalk", momController.StandTalk);
+        actionMap.Add("/bedroom/mom/talkPhone", momController.TalkPhone);
+        actionMap.Add("/bedroom/mom/idle", momController.Idle);
+        actionMap.Add("/bedroom/mom/textWalk", momController.TextWalk);
+        actionMap.Add("/bedroom/mom/reset", momParentController.ResetMom);
+        actionMap.Add("/bedroom/mom/moveOne", momParentController.MoveOne);
+        actionMap.Add("/bedroom/mom/moveToPC", momParentController.MoveTwo);
+
         //Transition
-        //actionMap.Add("/bedroom/transition/appear", bedroomTransitionController.DoTransition);
-        //actionMap.Add("/bedroom/transition/disappear", bedroomTransitionController.UndoTransition);
-        //Camera
-        actionMap.Add("/bedroom/camera/one", cameraManager.ShowCameraOne);
-        actionMap.Add("/bedroom/camera/two", cameraManager.ShowCameraTwo);
-        actionMap.Add("/bedroom/camera/three", cameraManager.ShowCameraThree);
-        actionMap.Add("/bedroom/camera/four", cameraManager.ShowCameraFour);
-        actionMap.Add("/bedroom/camera/move/x", cameraManager.ShowCameraThree);
-        actionMap.Add("/bedroom/camera/move/y", cameraManager.ShowCameraFour);
+        actionMap.Add("/bedroom/transition/do", bedroomTransitionController.DoTransition);
+        //actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);
+        //Lamp
+        actionMap.Add("/bedroom/lamp/on", lampController.TurnOnLamp);
+        actionMap.Add("/bedroom/lamp/off", lampController.TurnOffLamp);
+        //RumbleEffect
+        actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
+        
     }
 
-    public void HandleAction(string address, float value)
+    public void HandleAction(string address)
     {
         if (actionMap.ContainsKey(address))
         {

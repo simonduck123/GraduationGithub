@@ -10,10 +10,22 @@ public class ParkSceneManager : MonoBehaviour
     public TableController tableController;
     public ParkTransitionController parkTransitionController;
     public OrbController orbController;
+    public LeftDoorController leftDoorController;
+    public RightDoorController rightDoorController;
+    public MomController momController;
 
     void Start()
     {
         actionMap = new Dictionary<string, System.Action>();
+        //Mom
+        actionMap.Add("/mom/animation/idle", momController.Idle);
+        actionMap.Add("/mom/animation/talk", momController.Talk);
+        actionMap.Add("/mom/animation/standTalk", momController.StandTalk);
+        actionMap.Add("/mom/animation/talkPhone", momController.TalkPhone);
+        actionMap.Add("/mom/animation/textWalk", momController.TextWalk);
+        //Transition
+        actionMap.Add("/park/transition/on", parkTransitionController.SwapScenes);
+        /*
         //Bird Flock
         actionMap.Add("/park/flock/on", flockController.TurnOnFlock);
         actionMap.Add("/park/flock/off", flockController.TurnOffFlock);
@@ -25,12 +37,17 @@ public class ParkSceneManager : MonoBehaviour
         //Table
         actionMap.Add("/park/table/appear", tableController.TableAppear);
         actionMap.Add("/park/table/disappear", tableController.TableDisappear);
-        //Transition
-        actionMap.Add("/park/transition/on", parkTransitionController.DoTransition);
-        actionMap.Add("/park/transition/off", parkTransitionController.UndoTransition);
+        //actionMap.Add("/park/transition/off", parkTransitionController.UndoTransition);
         //Orb
         actionMap.Add("/park/orb/on", orbController.OrbAppear);
         actionMap.Add("/park/orb/off", orbController.OrbDisappear);
+        //Fire Door
+        actionMap.Add("/park/door/fire/open", leftDoorController.OpenDoor);
+        actionMap.Add("/park/door/fire/close", leftDoorController.CloseDoor);
+        //Ice Door
+        actionMap.Add("/park/door/ice/open", rightDoorController.OpenDoor);
+        actionMap.Add("/park/door/ice/close", rightDoorController.CloseDoor);
+        */
     }
 
     public void HandleAction(string address)

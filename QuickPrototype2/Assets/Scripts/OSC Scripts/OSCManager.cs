@@ -3,18 +3,30 @@ using extOSC;
 
 public class OSCManager : MonoBehaviour
 {
-    public int ReceivePort = 7000;
-    public BedroomSceneManager bedroomSceneManager;  // Assign in the Inspector
+    public int ReceivePort = 7001;
+    public BedroomSceneManager bedroomSceneManager; 
     public ParkSceneManager parkSceneManager;
     public MultipleDimensionSceneManager multiDimensionSceneManager;
     public NewParkManager NewParkManager;
+    public BeachManager beachManager;
+    public BrotherBedroomManager brotherBedroomManager;
+    public SceneHandler sceneHandler;
     public OSCReceiver receiver;
     public OSCTransmitter transmitter;
 
     void Start()
     {
         receiver.LocalPort = ReceivePort;
+        #region Effects
+        //Rumble
+        receiver.Bind("/effect/rumble/on", StartRumble);
+        #endregion
         #region Bedroom
+        receiver.Bind("/reset", ResetScene);
+        //Lights
+
+        receiver.Bind("/bedroom/lights/on", LightsOn);
+        receiver.Bind("/bedroom/lights/off", LightsOff);
         //Fridge
         receiver.Bind("/bedroom/fridge/open", OpenFridge);
         receiver.Bind("/bedroom/fridge/close", CloseFridge);
@@ -30,29 +42,52 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/door/knock", PlayKnockSound);
         receiver.Bind("/bedroom/door/loudknock", PlayLoudKnockSound);
         //Dad
-        receiver.Bind("/bedroom/dad/walk", WalkInside);
-        receiver.Bind("/bedroom/dad/reset", ResetDad);
-        receiver.Bind("/bedroom/dad/throw", ThrowKevin);
-        //Dialogue
-        receiver.Bind("/bedroom/dialogue/show", ShowDialogue);
-        receiver.Bind("/bedroom/dialogue/hide", HideDialogue);
-        receiver.Bind("/bedroom/dialogue/next", DialogueNext);
-        receiver.Bind("/bedroom/dialogue/previous", DialoguePrevious);
+        
+        receiver.Bind("/bedroom/mom/walk", Walk);
+        receiver.Bind("/bedroom/mom/reset", MomReset);
+        receiver.Bind("/bedroom/mom/talk", Talk);
+        receiver.Bind("/bedroom/mom/standTalk", StandTalk);
+        receiver.Bind("/bedroom/mom/textWalk", TextWalk);
+        receiver.Bind("/bedroom/mom/idle", Idle);
+        receiver.Bind("/bedroom/mom/talkPhone", TalkPhone);
+
+        receiver.Bind("/bedroom/mom/moveOne", MoveOne);
+        receiver.Bind("/bedroom/mom/moveToPC", MoveTwo);
+
         //Transition
-        receiver.Bind("/bedroom/transition/appear", DoBedroomTransition);
-        receiver.Bind("/bedroom/transition/disappear", UndoBedroomTransition);
-        //Cameras
-        receiver.Bind("/bedroom/camera/one", CamOne);
-        receiver.Bind("/bedroom/camera/two", CamTwo);
-        receiver.Bind("/bedroom/camera/three", CamThree);
-        receiver.Bind("/bedroom/camera/four", CamFour);
-        receiver.Bind("/bedroom/camera/move/x", CamMoveX);
-        receiver.Bind("/bedroom/camera/move/y", CamMoveY);
+        receiver.Bind("/bedroom/transition/do", DoBedroomTransition);
+        receiver.Bind("/bedroom/transition/park", ParkTransition);
+        //Lamp
+        receiver.Bind("/bedroom/lamp/on", LampOn);
+        receiver.Bind("/bedroom/lamp/off", LampOff);
+
+        //NewCamera
+        receiver.Bind("/bedroom/cam/start", DoStartTransition);
+        #endregion
+        #region Beach
+        //Timeline Start
+        receiver.Bind("/beach/cam/start", PlayTimelineOne);
+        receiver.Bind("/beach/cam/restart", RestartTimelineOne);
+        receiver.Bind("/beach/cam/pause", PauseTimelineOne);
+        #endregion
+        #region Brother Bedroom
+        //Brother
+        receiver.Bind("/brotherRoom/brother/slam", BrotherSlam);
+        receiver.Bind("/brotherRoom/brother/standToFight", BrotherStandToFight);
+        receiver.Bind("/brotherRoom/brother/idleFight", BrotherIdleFight);
+        receiver.Bind("/brotherRoom/brother/fightToStand", BrotherFightToStand);
+        receiver.Bind("/brotherRoom/brother/walk", BrotherWalk);
+        receiver.Bind("/brotherRoom/brother/getHit", BrotherGetHit);
+        receiver.Bind("/brotherRoom/brother/nod", BrotherNod); 
+        receiver.Bind("/brotherRoom/brother/rightHook", BrotherRightHook);
+        receiver.Bind("/brotherRoom/brother/zombiePunch", BrotherZombiePunch);
+        //transition
+        receiver.Bind("/brotherRoom/transition/do", TransitionDoBrotherRoom);
         #endregion
         #region Park
-        //Fridge
-        receiver.Bind("/park/flock/on", TurnOffFlock);
-        receiver.Bind("/park/flock/off", TurnOnFlock);
+        //Flock
+        receiver.Bind("/park/flock/on", TurnOnFlock);
+        receiver.Bind("/park/flock/off", TurnOffFlock);
         //Lara
         receiver.Bind("/park/lara/enter", LaraEnter);
         receiver.Bind("/park/lara/reset", LaraResetPos);
@@ -67,6 +102,18 @@ public class OSCManager : MonoBehaviour
         //Orb
         receiver.Bind("/park/orb/on", OrbAppear);
         receiver.Bind("/park/orb/off", OrbDisappear);
+        //Fire Door
+        receiver.Bind("/park/door/fire/open", FireDoorOpen);
+        receiver.Bind("/park/door/fire/close", FireDoorClose);
+        //Ice Door
+        receiver.Bind("/park/door/ice/open", IceDoorOpen);
+        receiver.Bind("/park/door/ice/close", IceDoorClose);
+        //Mom
+        receiver.Bind("/mom/animation/idle", PlayMomIdleAnim);
+        receiver.Bind("/mom/animation/talk", PlayMomTalkAnim);
+        receiver.Bind("/mom/animation/standTalk", PlayMomStandTalkAnim);
+        receiver.Bind("/mom/animation/talkPhone", PlayMomTalkPhoneAnim);
+        receiver.Bind("/mom/animation/textWalk", PlayMomTextWalkAnim);
         #endregion
         #region Dimension
         //RightDoor
@@ -91,41 +138,52 @@ public class OSCManager : MonoBehaviour
 
         #endregion
     }
-    #region Bedroom Functions
-    //Camera
-    public void CamMoveX(OSCMessage message)
+    #region Effects Functions
+    //Rumble
+    private void StartRumble(OSCMessage message)
     {
-        if (message.ToFloat(out var xValue))
-        {
-            // Call the corresponding function in bedroomSceneManager with xValue
-            bedroomSceneManager.HandleAction("/bedroom/camera/move/x", xValue);
-        }
+        bedroomSceneManager.HandleAction("/effect/rumble/on");
     }
-    public void CamMoveY(OSCMessage message)
+    #endregion
+    #region Bedroom Functions
+    //lights
+
+    private void LightsOn(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/move/y");
+        bedroomSceneManager.HandleAction("/bedroom/lights/on");
     }
 
-    private void CamOne(OSCMessage message)
+    private void LightsOff(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/one");
+        bedroomSceneManager.HandleAction("/bedroom/lights/off");
     }
-    private void CamTwo(OSCMessage message)
+    //New Camera
+
+
+    private void ResetScene(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/two");
+        sceneHandler.HandleAction("/reset");
     }
-    private void CamThree(OSCMessage message)
+
+    private void DoStartTransition(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/three");
+        bedroomSceneManager.HandleAction("/bedroom/cam/start");
     }
-    private void CamFour(OSCMessage message)
+
+    //Lamp
+    private void LampOn(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/four");
+        bedroomSceneManager.HandleAction("/bedroom/lamp/on");
+    }
+
+    private void LampOff(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/lamp/off");
     }
     //Fridge
     private void OpenFridge(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/camera/one");
+        bedroomSceneManager.HandleAction("/bedroom/fridge/open");
     }
 
     private void CloseFridge(OSCMessage message)
@@ -176,54 +234,159 @@ public class OSCManager : MonoBehaviour
         bedroomSceneManager.HandleAction("/bedroom/door/loudknock");
     }
 
-    //Dad
-    private void WalkInside(OSCMessage message)
+    //Mom
+    private void Walk(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dad/walk");
+        bedroomSceneManager.HandleAction("/bedroom/mom/walk");
     }
 
-    private void ResetDad(OSCMessage message)
+    private void TextWalk(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dad/reset");
+        bedroomSceneManager.HandleAction("/bedroom/mom/textWalk");
     }
 
-    private void ThrowKevin(OSCMessage message)
+    private void Talk(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dad/throw");
+        bedroomSceneManager.HandleAction("/bedroom/mom/talk");
     }
 
-    //Dialogue
-    private void DialogueNext(OSCMessage message)
+    private void TalkPhone(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dialogue/next");
+        bedroomSceneManager.HandleAction("/bedroom/mom/talkPhone");
     }
 
-    private void DialoguePrevious(OSCMessage message)
+    private void StandTalk(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dialogue/previous");
+        bedroomSceneManager.HandleAction("/bedroom/mom/standTalk");
     }
 
-    private void ShowDialogue(OSCMessage message)
+    private void Idle(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dialogue/show");
+        bedroomSceneManager.HandleAction("/bedroom/mom/idle");
     }
 
-    private void HideDialogue(OSCMessage message)
+    private void MoveOne(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/dialogue/hide");
+        bedroomSceneManager.HandleAction("/bedroom/mom/moveOne");
+    }
+
+    private void MoveTwo(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/mom/moveToPC");
+    }
+
+    private void MomReset(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/mom/reset");
     }
 
     //Transition
     private void DoBedroomTransition(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/transition/appear");
+        bedroomSceneManager.HandleAction("/bedroom/transition/do");
     }
-    private void UndoBedroomTransition(OSCMessage message)
+    private void ParkTransition(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/transition/disappear");
+        bedroomSceneManager.HandleAction("/bedroom/transition/park");
+    }
+    #endregion
+    #region Beach Functions
+    private void PlayTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/start");
+    }
+    private void RestartTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/restart");
+    }
+    private void PauseTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/pause");
+    }
+    #endregion
+    #region BrotherRoom Functions
+    //transition
+    private void TransitionDoBrotherRoom(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/transition/do");
+    }
+    private void BrotherSlam(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/slam");
+    }
+    private void BrotherStandToFight(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/standToFight");
+    }
+    private void BrotherIdleFight(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/idleFight");
+    }
+    private void BrotherFightToStand(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/fightToStand");
+    }
+    private void BrotherWalk(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/walk");
+    }
+    private void BrotherGetHit(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/getHit");
+    }
+    private void BrotherNod(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/nod");
+    }
+    private void BrotherRightHook(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/rightHook");
+    }
+    private void BrotherZombiePunch(OSCMessage message)
+    {
+        brotherBedroomManager.HandleAction("/brotherRoom/brother/zombiePunch");
     }
     #endregion
     #region Park Functions
+    //Mom
+    private void PlayMomIdleAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/idle");
+    }
+    private void PlayMomTalkAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/talk");
+    }
+    private void PlayMomStandTalkAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/standTalk");
+    }
+    private void PlayMomTalkPhoneAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/talkPhone");
+    }
+    private void PlayMomTextWalkAnim(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/mom/animation/textWalk");
+    }
+    //Fire Door
+    private void FireDoorOpen(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/fire/open");
+    }
+    private void FireDoorClose(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/fire/close");
+    }
+    //Ice Door
+    private void IceDoorOpen(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/ice/open");
+    }
+    private void IceDoorClose(OSCMessage message)
+    {
+        parkSceneManager.HandleAction("/park/door/ice/close");
+    }
     //Flock
     private void TurnOffFlock(OSCMessage message)
     {

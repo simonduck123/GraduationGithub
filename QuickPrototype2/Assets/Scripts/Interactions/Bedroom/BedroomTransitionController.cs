@@ -5,22 +5,17 @@ using UnityEngine;
 
 public class BedroomTransitionController : MonoBehaviour
 {
+    public Animator animator;
     public void DoTransition()
     {
-        LoadNextScene();
+        animator.SetTrigger("lights");
     }
 
-    public void UndoTransition()
-    {
-
-    }
 
     public void LoadNextScene()
     {
-        // Get the index of the current scene
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // Load the next scene by incrementing the current scene index
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

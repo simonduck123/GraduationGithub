@@ -8,7 +8,7 @@ public class BedroomTransitionController : MonoBehaviour
     public Animator animator;
     public void DoTransition()
     {
-        animator.SetTrigger("do");
+        animator.SetTrigger("lights");
     }
 
 

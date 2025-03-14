@@ -29,6 +29,7 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/lights/off", lightController.TurnOffLights);
         //New Camera
         actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
+        actionMap.Add("/reset", bedroomCameraController.ResetBedroomScene);
         //Fridge
         actionMap.Add("/bedroom/fridge/open", fridgeController.OpenFridge);
         actionMap.Add("/bedroom/fridge/close", fridgeController.CloseFridge);

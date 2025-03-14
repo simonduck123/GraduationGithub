@@ -21,6 +21,9 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/effect/rumble/on", StartRumble);
         #endregion
         #region Bedroom
+        //Lights
+        receiver.Bind("/bedroom/lights/on", LightsOn);
+        receiver.Bind("/bedroom/lights/off", LightsOff);
         //Fridge
         receiver.Bind("/bedroom/fridge/open", OpenFridge);
         receiver.Bind("/bedroom/fridge/close", CloseFridge);
@@ -140,6 +143,17 @@ public class OSCManager : MonoBehaviour
     }
     #endregion
     #region Bedroom Functions
+    //lights
+
+    private void LightsOn(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/lights/on");
+    }
+
+    private void LightsOff(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/lights/off");
+    }
     //New Camera
 
     private void DoStartTransition(OSCMessage message)

@@ -4,7 +4,7 @@ using extOSC;
 public class OSCManager : MonoBehaviour
 {
     public int ReceivePort = 7001;
-    public BedroomSceneManager bedroomSceneManager; 
+    public BedroomSceneManager bedroomSceneManager;
     public ParkSceneManager parkSceneManager;
     public MultipleDimensionSceneManager multiDimensionSceneManager;
     public NewParkManager NewParkManager;
@@ -25,8 +25,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/reset", ResetScene);
         //Lights
 
-        receiver.Bind("/bedroom/lights/on", LightsOn);
-        receiver.Bind("/bedroom/lights/off", LightsOff);
+        receiver.Bind("/bedroom/lights/do", LightsDo); ;
         //Fridge
         receiver.Bind("/bedroom/fridge/open", OpenFridge);
         receiver.Bind("/bedroom/fridge/close", CloseFridge);
@@ -42,7 +41,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/door/knock", PlayKnockSound);
         receiver.Bind("/bedroom/door/loudknock", PlayLoudKnockSound);
         //Dad
-        
+
         receiver.Bind("/bedroom/mom/walk", Walk);
         receiver.Bind("/bedroom/mom/reset", MomReset);
         receiver.Bind("/bedroom/mom/talk", Talk);
@@ -78,7 +77,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/brotherRoom/brother/fightToStand", BrotherFightToStand);
         receiver.Bind("/brotherRoom/brother/walk", BrotherWalk);
         receiver.Bind("/brotherRoom/brother/getHit", BrotherGetHit);
-        receiver.Bind("/brotherRoom/brother/nod", BrotherNod); 
+        receiver.Bind("/brotherRoom/brother/nod", BrotherNod);
         receiver.Bind("/brotherRoom/brother/rightHook", BrotherRightHook);
         receiver.Bind("/brotherRoom/brother/zombiePunch", BrotherZombiePunch);
         //transition
@@ -148,15 +147,11 @@ public class OSCManager : MonoBehaviour
     #region Bedroom Functions
     //lights
 
-    private void LightsOn(OSCMessage message)
+    private void LightsDo(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/bedroom/lights/on");
+        bedroomSceneManager.HandleAction("/bedroom/lights/do");
     }
 
-    private void LightsOff(OSCMessage message)
-    {
-        bedroomSceneManager.HandleAction("/bedroom/lights/off");
-    }
     //New Camera
 
 

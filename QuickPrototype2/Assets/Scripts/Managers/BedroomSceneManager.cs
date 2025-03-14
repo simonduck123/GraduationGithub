@@ -25,8 +25,7 @@ public class BedroomSceneManager : MonoBehaviour
     {
         actionMap = new Dictionary<string, System.Action>();
         //lights
-        actionMap.Add("/bedroom/lights/on", lightController.TurnOnLights);
-        actionMap.Add("/bedroom/lights/off", lightController.TurnOffLights);
+        actionMap.Add("/bedroom/lights/do", lightController.DoLights);
         //New Camera
         actionMap.Add("/bedroom/cam/start", bedroomCameraController.StartGameAnimation);
         actionMap.Add("/reset", bedroomCameraController.ResetBedroomScene);
@@ -63,7 +62,7 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/lamp/off", lampController.TurnOffLamp);
         //RumbleEffect
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
-        
+
     }
 
     public void HandleAction(string address)

@@ -10,6 +10,7 @@ public class OSCManager : MonoBehaviour
     public NewParkManager NewParkManager;
     public BeachManager beachManager;
     public BrotherBedroomManager brotherBedroomManager;
+    public DistroManager distroManager;
     public SceneHandler sceneHandler;
     public OSCReceiver receiver;
     public OSCTransmitter transmitter;
@@ -76,6 +77,10 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/beach/cam/start", PlayTimelineOne);
         receiver.Bind("/beach/cam/restart", RestartTimelineOne);
         receiver.Bind("/beach/cam/pause", PauseTimelineOne);
+        #endregion
+        #region Distro
+        //transition
+        receiver.Bind("/distro/transition/do", DoDistroTransition);
         #endregion
         #region Brother Bedroom
         //Brother
@@ -326,6 +331,13 @@ public class OSCManager : MonoBehaviour
     private void PauseTimelineOne(OSCMessage message)
     {
         beachManager.HandleAction("/beach/cam/pause");
+    }
+    #endregion
+    #region Distro Functions
+    //transition
+    private void DoDistroTransition(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/transition/do");
     }
     #endregion
     #region BrotherRoom Functions

@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/PreviousScenes/Test.unity
     guid: 2d430a063f6441a419711c4e97ab14a8
   - enabled: 1
-    path: Assets/Scenes/PreviousScenes/Ocean.unity
-    guid: 8b10ec49b8f269a4f8b262b794f19c3a
-  - enabled: 1
     path: Assets/Scenes/Distro.unity
     guid: 4f1c2ae1c97f2eb4987c3ce8e026618f
+  - enabled: 1
+    path: Assets/Scenes/PreviousScenes/Ocean.unity
+    guid: 8b10ec49b8f269a4f8b262b794f19c3a
   - enabled: 1
     path: Assets/Scenes/PreviousScenes/Kitchen-Bedroom.unity
     guid: 36e4edbc4dbf81c46a25a93158756fe4

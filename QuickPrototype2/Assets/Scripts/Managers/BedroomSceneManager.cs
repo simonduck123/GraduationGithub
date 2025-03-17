@@ -21,6 +21,7 @@ public class BedroomSceneManager : MonoBehaviour
     public BedroomCameraController bedroomCameraController;
     public LightController lightController;
     public VideoSwitcher videoSwitcher;
+    public CurtainController curtainController;
 
     void Start()
     {
@@ -68,7 +69,8 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
         //videoSwap
         actionMap.Add("/bedroom/video/next", videoSwitcher.SwapVideo);
-
+        //Curtain
+        actionMap.Add("/bedroom/curtain/do", curtainController.DoAnimation);
     }
 
     public void HandleAction(string address)

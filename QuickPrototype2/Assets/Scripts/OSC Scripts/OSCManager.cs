@@ -68,6 +68,8 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/cam/start", DoStartTransition);
         //video
         receiver.Bind("/bedroom/video/next", NextVideo);
+        //curtain
+        receiver.Bind("/bedroom/curtain/do", CurtainDo);
         #endregion
         #region Beach
         //Timeline Start
@@ -151,6 +153,11 @@ public class OSCManager : MonoBehaviour
     }
     #endregion
     #region Bedroom Functions
+    //Curtain
+    private void CurtainDo(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/curtain/do");
+    }
     //video
     private void NextVideo(OSCMessage message)
     {

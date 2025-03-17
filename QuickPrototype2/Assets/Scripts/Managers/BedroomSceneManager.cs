@@ -20,6 +20,7 @@ public class BedroomSceneManager : MonoBehaviour
     public LampController lampController, bedLampController;
     public BedroomCameraController bedroomCameraController;
     public LightController lightController;
+    public VideoSwitcher videoSwitcher;
 
     void Start()
     {
@@ -65,6 +66,8 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/bed/lamp/off", bedLampController.TurnOffLamp);
         //RumbleEffect
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
+        //videoSwap
+        actionMap.Add("/bedroom/video/next", videoSwitcher.SwapVideo);
 
     }
 

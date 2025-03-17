@@ -17,7 +17,7 @@ public class BedroomSceneManager : MonoBehaviour
     public MomController momController;
     public MomParentController momParentController;
     public RumbleController rumbleController;
-    public LampController lampController;
+    public LampController lampController, bedLampController;
     public BedroomCameraController bedroomCameraController;
     public LightController lightController;
 
@@ -60,6 +60,9 @@ public class BedroomSceneManager : MonoBehaviour
         //Lamp
         actionMap.Add("/bedroom/lamp/on", lampController.TurnOnLamp);
         actionMap.Add("/bedroom/lamp/off", lampController.TurnOffLamp);
+        //Lamp bed
+        actionMap.Add("/bedroom/bed/lamp/on", bedLampController.TurnOnLamp);
+        actionMap.Add("/bedroom/bed/lamp/off", bedLampController.TurnOffLamp);
         //RumbleEffect
         actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
 

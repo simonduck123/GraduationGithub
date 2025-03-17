@@ -60,6 +60,10 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/bedroom/lamp/on", LampOn);
         receiver.Bind("/bedroom/lamp/off", LampOff);
 
+        //Bed Lamp
+        receiver.Bind("/bedroom/bed/lamp/on", BedLampOn);
+        receiver.Bind("/bedroom/bed/lamp/off", BedLampOff);
+
         //NewCamera
         receiver.Bind("/bedroom/cam/start", DoStartTransition);
         #endregion
@@ -174,6 +178,17 @@ public class OSCManager : MonoBehaviour
     private void LampOff(OSCMessage message)
     {
         bedroomSceneManager.HandleAction("/bedroom/lamp/off");
+    }
+
+    //Lamp Bed
+    private void BedLampOn(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/bed/lamp/on");
+    }
+
+    private void BedLampOff(OSCMessage message)
+    {
+        bedroomSceneManager.HandleAction("/bedroom/bed/lamp/off");
     }
     //Fridge
     private void OpenFridge(OSCMessage message)

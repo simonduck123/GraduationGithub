@@ -7,6 +7,7 @@ using UnityEngine.Playables;
 public class TimelineManager : MonoBehaviour
 {
     public PlayableDirector playableDirector;
+    public PlayableAsset exitAnimation;
 
     public void PlayTimeline()
     {
@@ -30,6 +31,18 @@ public class TimelineManager : MonoBehaviour
         if (playableDirector != null)
         {
             playableDirector.Pause();
+        }
+    }
+
+    public void SkipTimeline()
+    {
+        if (playableDirector != null)
+        {
+            Debug.Log("do");
+            playableDirector.Pause();
+            playableDirector.Evaluate();
+            playableDirector.playableAsset = exitAnimation;
+            playableDirector.Play();
         }
     }
 

@@ -2565,6 +2565,8 @@ PlayableDirector:
     value: {fileID: 919132148462899294}
   - key: {fileID: -8591672996115164150, guid: eb496a5b648af574e99634131e3f20b4, type: 2}
     value: {fileID: 919132147572165895}
+  - key: {fileID: 7984825482203970897, guid: 8d81604cf7308094c933cc0b953cfffc, type: 2}
+    value: {fileID: 8924866416911285380}
   m_ExposedReferences:
     m_References:
     - 5a797785782bfa845beb13c11e0ef2e6: {fileID: 4362755417232150033}
@@ -2582,6 +2584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1625769436}
+  exitAnimation: {fileID: 11400000, guid: 8d81604cf7308094c933cc0b953cfffc, type: 2}
 --- !u!114 &1625769438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23318,7 +23321,7 @@ Transform:
   - {fileID: 627884338}
   - {fileID: 528904509}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 249.7873, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 74.45892, z: 0}
 --- !u!95 &8924866416911285380
 Animator:
   serializedVersion: 7
@@ -23329,7 +23332,7 @@ Animator:
   m_GameObject: {fileID: 4362755417232150033}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9eea671a567f7ba448b630ff1f8fcb1c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

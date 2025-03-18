@@ -80,6 +80,7 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/beach/cam/start", PlayTimelineOne);
         receiver.Bind("/beach/cam/restart", RestartTimelineOne);
         receiver.Bind("/beach/cam/pause", PauseTimelineOne);
+        receiver.Bind("/beach/cam/skip", SkipTimelineOne);
         #endregion
         #region Distro
         //transition
@@ -346,6 +347,10 @@ public class OSCManager : MonoBehaviour
     private void PauseTimelineOne(OSCMessage message)
     {
         beachManager.HandleAction("/beach/cam/pause");
+    }
+    private void SkipTimelineOne(OSCMessage message)
+    {
+        beachManager.HandleAction("/beach/cam/skip");
     }
     #endregion
     #region Distro Functions

@@ -15,6 +15,7 @@ public class BeachManager : MonoBehaviour
         actionMap.Add("/beach/cam/start", timelineManager.PlayTimeline);
         actionMap.Add("/beach/cam/restart", timelineManager.RestartTimeline);
         actionMap.Add("/beach/cam/pause", timelineManager.PauseTimeline);
+        actionMap.Add("/beach/cam/skip", timelineManager.SkipTimeline);
     }
 
     public void HandleAction(string address)

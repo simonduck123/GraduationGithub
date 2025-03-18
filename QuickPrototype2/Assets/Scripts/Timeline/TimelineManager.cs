@@ -21,6 +21,7 @@ public class TimelineManager : MonoBehaviour
         if (playableDirector != null)
         {
             playableDirector.time = 0;
+            playableDirector.Play();
         }
     }
 

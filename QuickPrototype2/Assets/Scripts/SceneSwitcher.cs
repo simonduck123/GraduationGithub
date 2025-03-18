@@ -4,7 +4,7 @@ using extOSC;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public int ReceivePort = 7004;
+    public int ReceivePort = 7001;
     public OSCReceiver oscReceiver; // Assign in Inspector
     private string oscAddress = "/scene"; // OSC message to listen for
 
@@ -14,7 +14,6 @@ public class SceneSwitcher : MonoBehaviour
         {
             oscReceiver.LocalPort = ReceivePort;
             oscReceiver.Bind(oscAddress, OnSceneChangeReceived);
-            Debug.Log(oscAddress);
         }
         else
         {

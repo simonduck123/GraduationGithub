@@ -6225,6 +6225,10 @@ PrefabInstance:
       value: OSC Manager
       objectReference: {fileID: 0}
     - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549510628411377050, guid: a96586c242269a94187e8c64c9b83550, type: 3}
       propertyPath: ReceivePort
       value: 7001
       objectReference: {fileID: 0}
@@ -10471,6 +10475,7 @@ GameObject:
   - component: {fileID: 1935059406}
   - component: {fileID: 1935059407}
   - component: {fileID: 1935059408}
+  - component: {fileID: 1935059409}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -10517,8 +10522,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e2dfba07e29c248944808a28f9ebf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReceivePort: 7001
-  oscReceiver: {fileID: 2097014705}
+  ReceivePort: 7002
+  oscReceiver: {fileID: 1935059409}
+--- !u!114 &1935059409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935059405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbba286dc10e549b2bdec947ef8dbd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  _closeOnPause: 0
+  _mapBundle: {fileID: 0}
+  _workInEditor: 0
+  _localHostMode: 0
+  _localHost: 169.254.138.130
+  _localPort: 7002
 --- !u!1 &1935917062
 GameObject:
   m_ObjectHideFlags: 0
@@ -11393,17 +11417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightSource: {fileID: 914519013}
---- !u!114 &2097014705 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5606233226918211864, guid: a96586c242269a94187e8c64c9b83550, type: 3}
-  m_PrefabInstance: {fileID: 1345348792}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbba286dc10e549b2bdec947ef8dbd3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2114558639
 GameObject:
   m_ObjectHideFlags: 0
@@ -19019,7 +19032,7 @@ Transform:
   m_GameObject: {fileID: 6600179462823115346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0037213347, y: -0.0035315226, z: -5.757624e-10}
+  m_LocalPosition: {x: 0.0037213347, y: -0.0035315226, z: 0.000000002233387}
   m_LocalScale: {x: 0.98551285, y: 0.98551285, z: 0.98551285}
   m_ConstrainProportionsScale: 0
   m_Children: []

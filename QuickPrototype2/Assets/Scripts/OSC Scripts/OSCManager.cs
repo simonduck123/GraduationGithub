@@ -18,9 +18,12 @@ public class OSCManager : MonoBehaviour
     void Start()
     {
         receiver.LocalPort = ReceivePort;
-        #region Effects
-        //Rumble
-        receiver.Bind("/effect/rumble/on", StartRumble);
+        #region SceneHandler
+        //scene
+        receiver.Bind("/scene/bedroom", SwitchSceneOne);
+        receiver.Bind("/scene/beach", SwitchSceneTwo);
+        receiver.Bind("/scene/distro", SwitchSceneThree);
+        //receiver.Bind("/scene/four", SwitchSceneFour);
         #endregion
         #region Bedroom
         receiver.Bind("/reset", ResetScene);
@@ -150,11 +153,23 @@ public class OSCManager : MonoBehaviour
 
         #endregion
     }
-    #region Effects Functions
-    //Rumble
-    private void StartRumble(OSCMessage message)
+    #region Scene Functions
+    //Scene
+    private void SwitchSceneOne(OSCMessage message)
     {
-        bedroomSceneManager.HandleAction("/effect/rumble/on");
+        sceneHandler.HandleAction("/scene/bedroom");
+    }
+    private void SwitchSceneTwo(OSCMessage message)
+    {
+        sceneHandler.HandleAction("/scene/beach");
+    }
+    private void SwitchSceneThree(OSCMessage message)
+    {
+        sceneHandler.HandleAction("/scene/distro");
+    }
+    private void SwitchSceneFour(OSCMessage message)
+    {
+        sceneHandler.HandleAction("/scene/four");
     }
     #endregion
     #region Bedroom Functions

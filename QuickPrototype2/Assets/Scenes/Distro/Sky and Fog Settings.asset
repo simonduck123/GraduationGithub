@@ -181,7 +181,7 @@ MonoBehaviour:
     m_Value: 0
   nearFocusEnd:
     m_OverrideState: 1
-    m_Value: 19.5
+    m_Value: 10.29
   farFocusStart:
     m_OverrideState: 1
     m_Value: 53.23
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_Value: 8
   m_NearMaxBlur:
     m_OverrideState: 1
-    m_Value: 7
+    m_Value: 5.3
   m_FarSampleCount:
     m_OverrideState: 1
     m_Value: 14
@@ -802,7 +802,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2.19
+    m_Value: 1.89
   directLightingStrength:
     m_OverrideState: 0
     m_Value: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
   active: 1
   skyType:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 3
   cloudType:
     m_OverrideState: 0
     m_Value: 1
@@ -979,7 +979,7 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0.012709146, g: 0.05660379, b: 0.036994208, a: 1}
+    m_Value: {r: 0.0035490564, g: 0.011, b: 0.009758175, a: 1}
   middle:
     m_OverrideState: 1
     m_Value: {r: 0.0076539624, g: 0.0087501705, b: 0.01886791, a: 1}

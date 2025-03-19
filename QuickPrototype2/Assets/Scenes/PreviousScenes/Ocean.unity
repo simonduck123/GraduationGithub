@@ -1820,7 +1820,7 @@ MonoBehaviour:
     m_Knots:
     - Position:
         x: -0.5007124
-        y: -0.004989505
+        y: 0.025837421
         z: 0
       TangentIn:
         x: -0
@@ -1838,8 +1838,8 @@ MonoBehaviour:
           w: 1
     - Position:
         x: 0
-        y: 0.00053453445
-        z: 0.5
+        y: 0.022273779
+        z: 0.5007129
       TangentIn:
         x: -0
         y: -0
@@ -1856,7 +1856,7 @@ MonoBehaviour:
           w: 0.70710677
     - Position:
         x: 0.6359589
-        y: -0.003563881
+        y: 0.016571641
         z: -0.0014257431
       TangentIn:
         x: -0
@@ -1874,8 +1874,8 @@ MonoBehaviour:
           w: 0
     - Position:
         x: 0.015324354
-        y: 0.011938572
-        z: -0.48378468
+        y: 0.04062724
+        z: -0.48734856
       TangentIn:
         x: -0
         y: -0
@@ -2676,6 +2676,158 @@ Transform:
   m_Children:
   - {fileID: 1203439303}
   m_Father: {fileID: 717612805}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1101705349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101705351}
+  - component: {fileID: 1101705350}
+  m_Layer: 0
+  m_Name: PlaneSpline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1101705350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101705349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -0.62499994
+        y: -0.015999973
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.27614236
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.27614236
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    - Position:
+        x: 0
+        y: 0.025999963
+        z: 0.5
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.27614236
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.27614236
+      Rotation:
+        value:
+          x: 0
+          y: 0.70710677
+          z: 0
+          w: 0.70710677
+    - Position:
+        x: 0.5
+        y: 0.08050001
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.27614236
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.27614236
+      Rotation:
+        value:
+          x: 0
+          y: 0.99999994
+          z: 0
+          w: 0
+    - Position:
+        x: 0
+        y: 0.035999954
+        z: -0.5
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0.27614236
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0.27614236
+      Rotation:
+        value:
+          x: 0
+          y: 0.7071067
+          z: 0
+          w: -0.7071067
+    m_MetaData:
+    - Mode: 4
+      Tension: 0.5
+    - Mode: 4
+      Tension: 0.5
+    - Mode: 4
+      Tension: 0.5
+    - Mode: 4
+      Tension: 0.5
+    m_Closed: 1
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!4 &1101705351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101705349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -110, y: 139, z: -385.6}
+  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118112543
 GameObject:
@@ -5302,8 +5454,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148874866019}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.001863896, y: 0.83849233, z: -0.001056883, w: -0.54490936}
-  m_LocalPosition: {x: -334.56427, y: 841.94556, z: -1399.5151}
+  m_LocalRotation: {x: -0.0074639316, y: 0.26310918, z: 0.018210996, w: -0.9645654}
+  m_LocalPosition: {x: -347.54813, y: 842.68976, z: -1428.814}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6399,12 +6551,12 @@ MonoBehaviour:
   m_LoopMode: 1
   m_Method: 0
   m_Duration: 6
-  m_MaxSpeed: 0.55256027
+  m_MaxSpeed: 0.55346376
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 3
   m_ObjectUpAxis: 1
-  m_StartOffset: 0.46
+  m_StartOffset: 0.44
 --- !u!1 &919132149155708497
 GameObject:
   m_ObjectHideFlags: 0
@@ -16524,8 +16676,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9131859548017054270}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -109.82, y: 110.34, z: -496.44}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -234.99998, y: 135.8, z: -385.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26705,6 +26857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5251681194332266541}
+  - component: {fileID: 9131859548017054271}
   m_Layer: 0
   m_Name: biplane
   m_TagString: Untagged
@@ -26712,6 +26865,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9131859548017054271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131859548017054270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 1101705350}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 0
+  m_Duration: 20
+  m_MaxSpeed: 0.16627803
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 0
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1 &9131984461462184191
 GameObject:
   m_ObjectHideFlags: 0
@@ -27153,3 +27329,4 @@ SceneRoots:
   - {fileID: 1629187863}
   - {fileID: 5251681194332266541}
   - {fileID: 1981688229}
+  - {fileID: 1101705351}

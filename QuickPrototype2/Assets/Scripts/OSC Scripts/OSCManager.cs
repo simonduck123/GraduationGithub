@@ -79,8 +79,12 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/beach/cam/skip", SkipTimelineOne);
         #endregion
         #region Distro
-        //transition
-        receiver.Bind("/distro/transition/do", DoDistroTransition);
+        //animation
+        receiver.Bind("/distro/bull/idle", BullIdle);
+        receiver.Bind("/distro/bull/walk", BullWalk);
+        receiver.Bind("/distro/bull/laugh", BullLaugh);
+        receiver.Bind("/distro/bull/yell", BullYell);
+        receiver.Bind("/distro/bull/roar", BullRoar);
         #endregion
         #region Brother Bedroom
         //Brother
@@ -339,10 +343,26 @@ public class OSCManager : MonoBehaviour
     }
     #endregion
     #region Distro Functions
-    //transition
-    private void DoDistroTransition(OSCMessage message)
+    //animation
+    private void BullIdle(OSCMessage message)
     {
-        distroManager.HandleAction("/distro/transition/do");
+        distroManager.HandleAction("/distro/bull/idle");
+    }
+    private void BullWalk(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/bull/walk");
+    }
+    private void BullLaugh(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/bull/laugh");
+    }
+    private void BullYell(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/bull/yell");
+    }
+    private void BullRoar(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/bull/roar");
     }
     #endregion
     #region BrotherRoom Functions

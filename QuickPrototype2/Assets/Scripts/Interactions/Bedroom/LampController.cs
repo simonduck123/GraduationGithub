@@ -5,16 +5,23 @@ using UnityEngine;
 public class LampController : MonoBehaviour
 {
     public GameObject lightSource;
+    public AudioClip lampOn;
+    public AudioSource audioSource;
 
     public void TurnOnLamp()
     {
         lightSource.SetActive(true);
-        Debug.Log("Lamp on");
     }
 
     public void TurnOffLamp()
     {
         lightSource.SetActive(false);
-        Debug.Log("Lamp off");
+        PlayAudio(lampOn);
+    }
+
+    private void PlayAudio(AudioClip audio)
+    {
+        audioSource.clip = audio;
+        audioSource.Play();
     }
 }

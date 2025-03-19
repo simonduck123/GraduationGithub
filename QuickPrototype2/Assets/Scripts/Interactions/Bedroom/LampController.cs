@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class LampController : MonoBehaviour
 {
-    public GameObject lightSource;
+    public Animator animator;
     public AudioClip lampOn;
     public AudioSource audioSource;
 
-    public void TurnOnLamp()
+    public void DoLamps()
     {
-        lightSource.SetActive(true);
-    }
-
-    public void TurnOffLamp()
-    {
-        lightSource.SetActive(false);
+        animator.SetTrigger("do");
         PlayAudio(lampOn);
     }
+
 
     private void PlayAudio(AudioClip audio)
     {

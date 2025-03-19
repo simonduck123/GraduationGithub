@@ -60,11 +60,9 @@ public class BedroomSceneManager : MonoBehaviour
         actionMap.Add("/bedroom/transition/do", bedroomTransitionController.DoTransition);
         //actionMap.Add("/bedroom/transition/park", bedroomTransitionManager.ParkTransition);
         //Lamp
-        actionMap.Add("/bedroom/lamp/on", lampController.TurnOnLamp);
-        actionMap.Add("/bedroom/lamp/off", lampController.TurnOffLamp);
+        actionMap.Add("/bedroom/lamp/do", lampController.DoLamps);
         //Lamp bed
-        actionMap.Add("/bedroom/bed/lamp/on", bedLampController.TurnOnLamp);
-        actionMap.Add("/bedroom/bed/lamp/off", bedLampController.TurnOffLamp);
+        actionMap.Add("/bedroom/bed/lamp/do", bedLampController.DoLamps);
         //RumbleEffect
         //actionMap.Add("/effect/rumble/on", rumbleController.PlayRumble);
         //videoSwap

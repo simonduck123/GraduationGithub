@@ -648,13 +648,13 @@ MonoBehaviour:
     m_Value: 3
   cloudType:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   skyAmbientMode:
     m_OverrideState: 0
     m_Value: 1
   planetRadius:
     m_OverrideState: 0
-    m_Value: 6378.1
+    m_Value: 6349.65
   renderingSpace:
     m_OverrideState: 0
     m_Value: 1
@@ -665,8 +665,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0, y: -6378.1, z: 0}
   windOrientation:
-    m_OverrideState: 1
-    m_Value: 107
+    m_OverrideState: 0
+    m_Value: 38
   windSpeed:
     m_OverrideState: 0
     m_Value: 783.09
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 15.8
+    m_Value: 15.09
   multiplier:
     m_OverrideState: 1
     m_Value: 1
@@ -719,7 +719,7 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 1, a: 1}
+    m_Value: {r: 0.23839766, g: 0.6444799, b: 0.69387203, a: 1}
   middle:
     m_OverrideState: 1
     m_Value: {r: 0.3, g: 0.7, b: 1, a: 1}

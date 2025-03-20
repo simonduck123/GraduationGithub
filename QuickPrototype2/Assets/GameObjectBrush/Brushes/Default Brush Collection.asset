@@ -42,10 +42,10 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 0.76
-    brushSize: 7.53
-    minScale: 0.5
-    maxScale: 0.6
+    density: 3.5
+    brushSize: 5.9
+    minScale: 1.45
+    maxScale: 1.55
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
@@ -63,10 +63,10 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 5
-    minScale: 0.5
-    maxScale: 1.5
+    density: 3.49
+    brushSize: 14.1
+    minScale: 1.4
+    maxScale: 1.6
     offsetFromPivot: {x: 0, y: 0, z: 0}
     rotOffsetFromPivot: {x: 0, y: 0, z: 0}
     minSlope: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1.03
-    brushSize: 8.8
+    density: 2.36
+    brushSize: 3.6
     minScale: 1.45
     maxScale: 1.6
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -126,8 +126,8 @@ MonoBehaviour:
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 7.9
+    density: 2.79
+    brushSize: 3.2
     minScale: 1.45
     maxScale: 1.55
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -140,16 +140,16 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   primarySelectedBrush:
-    brushObject: {fileID: 100000, guid: efca1169eb52c4b45a5f9a4535cb62d2, type: 3}
+    brushObject: {fileID: 100078, guid: ed90a41b7cfee034ca54be9d3de341cd, type: 3}
     usePrefabs: 1
     allowIntercollision: 0
-    alignToSurface: 1
+    alignToSurface: 0
     randomizeXRotation: 0
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 7.9
+    density: 3.5
+    brushSize: 5.9
     minScale: 1.45
     maxScale: 1.55
     offsetFromPivot: {x: 0, y: 0, z: 0}
@@ -162,16 +162,16 @@ MonoBehaviour:
     isTagFilteringEnabled: 0
     tagFilter: 
   selectedBrushes:
-  - brushObject: {fileID: 100000, guid: efca1169eb52c4b45a5f9a4535cb62d2, type: 3}
+  - brushObject: {fileID: 100078, guid: ed90a41b7cfee034ca54be9d3de341cd, type: 3}
     usePrefabs: 1
     allowIntercollision: 0
-    alignToSurface: 1
+    alignToSurface: 0
     randomizeXRotation: 0
     randomizeYRotation: 1
     randomizeZRotation: 0
     parentContainer: {fileID: 0}
-    density: 1
-    brushSize: 7.9
+    density: 3.5
+    brushSize: 5.9
     minScale: 1.45
     maxScale: 1.55
     offsetFromPivot: {x: 0, y: 0, z: 0}

@@ -85,6 +85,10 @@ public class OSCManager : MonoBehaviour
         receiver.Bind("/distro/bull/laugh", BullLaugh);
         receiver.Bind("/distro/bull/yell", BullYell);
         receiver.Bind("/distro/bull/roar", BullRoar);
+        //transition
+        receiver.Bind("/distro/transition/do", TransitionDistro);
+        //bullMove
+        receiver.Bind("/distro/bull/do", BullMove);
         #endregion
         #region Brother Bedroom
         //Brother
@@ -343,6 +347,16 @@ public class OSCManager : MonoBehaviour
     }
     #endregion
     #region Distro Functions
+    //bullMove
+    private void BullMove(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/bull/do");
+    }
+    //Transition
+    private void TransitionDistro(OSCMessage message)
+    {
+        distroManager.HandleAction("/distro/transition/do");
+    }
     //animation
     private void BullIdle(OSCMessage message)
     {
